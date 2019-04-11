@@ -7,6 +7,8 @@ ini_set('display_errors', 1);
 $getWorlds = $conn->query("SELECT server, id FROM world");
 $curDate = date("Y-m-d");
 
+echo date("h:i:sa");
+
 while($world = $getWorlds->fetch_assoc())
 {
     #region Alliances
@@ -59,5 +61,7 @@ while($world = $getWorlds->fetch_assoc())
 
     #endRegion
 }
+
+echo date("h:i:sa");
 
 ?>
