@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrepolistoolsAPI", "GrepolistoolsAPI\GrepolistoolsAPI.csproj", "{887F368D-FC1B-4C2A-B1C7-85E63D4BD2C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{887F368D-FC1B-4C2A-B1C7-85E63D4BD2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{887F368D-FC1B-4C2A-B1C7-85E63D4BD2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{887F368D-FC1B-4C2A-B1C7-85E63D4BD2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{887F368D-FC1B-4C2A-B1C7-85E63D4BD2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EABDC55E-AA4A-4AF9-A53C-1B9E05726455}
+	EndGlobalSection
+EndGlobal
