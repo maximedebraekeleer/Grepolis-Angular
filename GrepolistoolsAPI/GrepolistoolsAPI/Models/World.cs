@@ -11,6 +11,7 @@ namespace GrepolistoolsAPI.Models
         public int Id { get; private set; }
         [Required]
         public Server Server { get; private set; }
+        public string Server_Name { get; private set; }
         [Required]
         public string Name { get; private set; }
         public bool isOpen { get; set; }

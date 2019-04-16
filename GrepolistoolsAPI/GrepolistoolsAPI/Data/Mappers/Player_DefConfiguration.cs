@@ -13,9 +13,6 @@ namespace GrepolistoolsAPI.Data.Mappers
         public void Configure(EntityTypeBuilder<Player_Def> builder)
         {
             builder.ToTable("Player_Def");
-
-            builder.HasKey(p => p.Player);
-            builder.HasOne(p => p.Player).WithOne(p => p.PointsDefending);
         }
     }
 }

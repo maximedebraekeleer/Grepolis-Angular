@@ -17,7 +17,7 @@ namespace GrepolistoolsAPI.Data.Mappers
             builder.HasKey(s => s.Name);
 
             builder.Property(s => s.Name).HasMaxLength(2);
-            builder.HasMany(s => s.Worlds).WithOne(w => w.Server).OnDelete(DeleteBehavior.Restrict);
+            //builder.HasMany(s => s.Worlds).WithOne(w => w.Server).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

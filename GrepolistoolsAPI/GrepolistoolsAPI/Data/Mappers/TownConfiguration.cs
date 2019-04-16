@@ -9,10 +9,11 @@ namespace GrepolistoolsAPI.Data.Mappers
         {
             builder.ToTable("Town");
 
-            builder.HasKey(t => new { t.Id, t.World, t.Date });
+            builder.HasKey(t => new { t.Id,
+                t.World_Id, t.Server_Name, 
+                t.Date });
 
-            builder.HasOne(t => t.Player).WithMany(p => p.towns).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(t => t.World).WithMany(w => w.towns).OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(t => t.World).WithMany(w => w.towns).HasForeignKey(w => new { w.World_Id, w.Server_Name }).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

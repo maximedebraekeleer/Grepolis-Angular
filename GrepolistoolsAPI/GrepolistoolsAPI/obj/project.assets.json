@@ -12304,11 +12304,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maxime\\Source\\Repos\\GrepolisTools\\Grepolistools API\\GrepolistoolsAPI\\GrepolistoolsAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Maxime\\Source\\Repos\\GrepolisTools\\GrepolistoolsAPI\\GrepolistoolsAPI\\GrepolistoolsAPI.csproj",
       "projectName": "GrepolistoolsAPI",
-      "projectPath": "C:\\Users\\Maxime\\Source\\Repos\\GrepolisTools\\Grepolistools API\\GrepolistoolsAPI\\GrepolistoolsAPI.csproj",
+      "projectPath": "C:\\Users\\Maxime\\Source\\Repos\\GrepolisTools\\GrepolistoolsAPI\\GrepolistoolsAPI\\GrepolistoolsAPI.csproj",
       "packagesPath": "C:\\Users\\Maxime\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maxime\\Source\\Repos\\GrepolisTools\\Grepolistools API\\GrepolistoolsAPI\\obj\\",
+      "outputPath": "C:\\Users\\Maxime\\Source\\Repos\\GrepolisTools\\GrepolistoolsAPI\\GrepolistoolsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -8,6 +8,5 @@ namespace GrepolistoolsAPI.Models
     public class Player_Def
     {
         public int Points { get; set; }
-        public Player Player { get; private set; }
     }
 }

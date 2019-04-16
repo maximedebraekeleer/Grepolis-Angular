@@ -36,6 +36,10 @@ namespace GrepolistoolsAPI.Data
             builder.ApplyConfiguration(new PlayerConfiguration());
             builder.ApplyConfiguration(new TownConfiguration());
             builder.ApplyConfiguration(new ConquerConfiguration());
+            builder.ApplyConfiguration(new Alliance_AttConfiguration());
+            builder.ApplyConfiguration(new Alliance_DefConfiguration());
+            builder.ApplyConfiguration(new Player_AttConfiguration());
+            builder.ApplyConfiguration(new Player_DefConfiguration());
         }
 
 

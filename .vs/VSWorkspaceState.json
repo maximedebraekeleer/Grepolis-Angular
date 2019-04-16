@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Grepolistools API"
+    "\\GrepolistoolsAPI",
+    "\\GrepolistoolsAPI\\GrepolistoolsAPI\\bin"
   ],
-  "SelectedNode": "\\Grepolistools API\\GrepolistoolsAPI.sln",
+  "SelectedNode": "\\GrepolistoolsAPI\\GrepolistoolsAPI.sln",
   "PreviewInSolutionExplorer": false
 }

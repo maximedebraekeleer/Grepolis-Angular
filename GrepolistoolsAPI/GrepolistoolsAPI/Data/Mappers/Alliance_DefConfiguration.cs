@@ -14,9 +14,6 @@ namespace GrepolistoolsAPI.Data.Mappers
         {
             builder.ToTable("Alliance_Def");
 
-            builder.HasKey(a => a.Alliance);
-            builder.HasOne(a => a.Alliance).WithOne(a => a.PointsDefending);
-
         }
     }
 }

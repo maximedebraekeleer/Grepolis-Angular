@@ -13,14 +13,14 @@ namespace GrepolistoolsAPI.Data.Mappers
         {
             builder.ToTable("Alliance");
 
-            builder.HasKey(a => new { a.Id, a.World, a.Date });
+            builder.HasKey(a => new { a.Id,
+                a.World_Id, a.Server_Name,
+                a.Date });
 
-            builder.Property(a => a.Name).IsRequired(false);
+            builder.HasOne(a => a.World).WithMany(w => w.alliances).HasForeignKey(a => new { a.World_Id, a.Server_Name }).OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(a => a.players).WithOne(p => p.Alliance).IsRequired(false).OnDelete(DeleteBehavior.Restrict);
-            builder.HasOne(a => a.World).WithMany(w => w.alliances).OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(a => a.PointsAttacking).WithOne(a => a.Alliance).OnDelete(DeleteBehavior.Restrict);
+            builder.OwnsOne(a => a.PointsAttacking).OnDelete(DeleteBehavior.Cascade);
+            builder.OwnsOne(a => a.PointsDefending).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
