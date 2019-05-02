@@ -1,0 +1,21 @@
+<?xml version="1.0"?>  
+<BCPFORMAT xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+ <RECORD>  
+  <FIELD ID="1" xsi:type="CharTerm" TERMINATOR=","/>  
+  <FIELD ID="2" xsi:type="CharTerm" TERMINATOR=","/>  
+  <FIELD ID="3" xsi:type="CharTerm" TERMINATOR=","/>  
+  <FIELD ID="4" xsi:type="CharTerm" TERMINATOR=","/>  
+  <FIELD ID="5" xsi:type="CharTerm" TERMINATOR=","/>  
+  <FIELD ID="6" xsi:type="CharTerm" TERMINATOR=","/>
+  <FIELD ID="7" xsi:type="CharTerm" TERMINATOR="\n"/>  
+ </RECORD>  
+ <ROW>  
+  <COLUMN SOURCE="1" NAME="Town_Id" xsi:type="SQLINT"/>  
+  <COLUMN SOURCE="2" NAME="Date" xsi:type="SQLDATETIME"/>  
+  <COLUMN SOURCE="3" NAME="NewOwner" xsi:type="SQLINT"/>  
+  <COLUMN SOURCE="4" NAME="OldOwner" xsi:type="SQLINT"/>  
+  <COLUMN SOURCE="5" NAME="NewAlliance" xsi:type="SQLINT"/> 
+  <COLUMN SOURCE="6" NAME="OldAlliance" xsi:type="SQLINT"/>  
+  <COLUMN SOURCE="7" NAME="Points" xsi:type="SQLINT"/>
+ </ROW>  
+</BCPFORMAT>  

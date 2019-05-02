@@ -15,7 +15,6 @@ namespace GrepolistoolsAPI.Data.Mappers
 
             builder.Property(w => w.Name).IsRequired(true);
             builder.Property(w => w.isOpen).HasDefaultValue(true);
-            builder.Property(w => w.closingDate).IsRequired(false);
 
             builder.HasMany(w => w.players).WithOne(p => p.World).HasForeignKey(p => new { p.World_Id, p.Server_Name });
             builder.HasMany(w => w.alliances).WithOne(a => a.World).HasForeignKey(a => new { a.World_Id, a.Server_Name });
