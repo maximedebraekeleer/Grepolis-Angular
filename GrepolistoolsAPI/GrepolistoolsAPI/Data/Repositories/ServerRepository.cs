@@ -10,12 +10,22 @@ namespace GrepolistoolsAPI.Data.Repositories
     public class ServerRepository
     {
         private readonly DbSet<Server> _servers;
-        GrepolistoolsContext _gContext;
+        GrepolistoolsContext _context;
 
         public ServerRepository(GrepolistoolsContext gContext)
         {
-            _gContext = gContext;
+            _context = gContext;
             _servers = gContext.Servers;
+        }
+
+        public IEnumerable<Server> GetAll()
+        {
+            return _servers;
+        }
+
+        public Server GetServer(String name)
+        {
+            return _context.Servers.Include(s => s.Worlds).SingleOrDefault(s => s.Name == name);
         }
 
     }

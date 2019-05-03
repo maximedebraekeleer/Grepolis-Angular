@@ -12,3 +12,17 @@ C:\Users\Maxime\Source\Repos\GrepolisTools\Grepolistools API\GrepolistoolsAPI\bi
 C:\Users\Maxime\Source\Repos\GrepolisTools\Grepolistools API\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.RazorTargetAssemblyInfo.cache
 C:\Users\Maxime\Source\Repos\GrepolisTools\Grepolistools API\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.dll
 C:\Users\Maxime\Source\Repos\GrepolisTools\Grepolistools API\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.pdb
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\bin\Debug\netcoreapp2.2\GrepolistoolsAPI.deps.json
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\bin\Debug\netcoreapp2.2\GrepolistoolsAPI.runtimeconfig.json
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\bin\Debug\netcoreapp2.2\GrepolistoolsAPI.runtimeconfig.dev.json
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\bin\Debug\netcoreapp2.2\GrepolistoolsAPI.dll
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\bin\Debug\netcoreapp2.2\GrepolistoolsAPI.pdb
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.csprojAssemblyReference.cache
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.csproj.CoreCompileInputs.cache
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.RazorAssemblyInfo.cache
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.RazorAssemblyInfo.cs
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.AssemblyInfoInputs.cache
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.AssemblyInfo.cs
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.dll
+C:\Users\Maxime\Source\Repos\GrepolisTools\GrepolistoolsAPI\GrepolistoolsAPI\obj\Debug\netcoreapp2.2\GrepolistoolsAPI.pdb
