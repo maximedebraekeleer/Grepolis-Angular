@@ -47,6 +47,7 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
 
     copy("https://{$world['Server_Name']}{$world['Id']}.grepolis.com/data/alliances.txt", "/var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_alliances.csv");
     exec("sed  -i '1i id,name,points,towns,members,rank\n' /var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_alliances.csv");
+    exec("sed -i 's@+@ @g;s@%@\\x@g' /var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_alliances.csv | xargs -0 printf '%b'");
     
     sqlsrv_query($conn, "ALTER TABLE Alliance ADD CONSTRAINT DF_Alliance_Server_Name DEFAULT '$world[Server_Name]' FOR Server_Name");
     sqlsrv_query($conn, "ALTER TABLE Alliance ADD CONSTRAINT DF_Alliance_World DEFAULT '$world[Id]' FOR World_Id");
@@ -76,6 +77,7 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
 
     copy("https://{$world['Server_Name']}{$world['Id']}.grepolis.com/data/players.txt", "/var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_players.csv");
     exec("sed  -i '1i id,name,alliance_id,points,rank,towns\n' /var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_players.csv");
+    exec("sed -i 's@+@ @g;s@%@\\x@g' /var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_players.csv | xargs -0 printf '%b'");
     sqlsrv_query($conn, "BULK INSERT Player FROM '/var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_players.csv' WITH
         (
             FORMAT = 'CSV', 
@@ -100,6 +102,7 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
 
     copy("https://{$world['Server_Name']}{$world['Id']}.grepolis.com/data/towns.txt", "/var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_towns.csv");
     exec("sed  -i '1i id,player_id,name,coord_x,coord_y,coord_island,points\n' /var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_towns.csv");
+    exec("sed -i 's@+@ @g;s@%@\\x@g' /var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_towns.csv | xargs -0 printf '%b'");
     sqlsrv_query($conn, "BULK INSERT Town FROM '/var/www/api.grepolistools.com/data/{$world['Server_Name']}{$world['Id']}_towns.csv' WITH
         (
             FORMAT = 'CSV',
@@ -155,6 +158,12 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
                 FORMATFILE = '/var/www/api.grepolistools.com/format/alliance_kills.xml'
             );
     ");
+
+    sqlsrv_query($conn, "ALTER TABLE Alliance_Att DROP CONSTRAINT DF_Alliance_Def_Server_Name");
+    sqlsrv_query($conn, "ALTER TABLE Alliance_Att DROP CONSTRAINT DF_Alliance_Def_World");
+    sqlsrv_query($conn, "ALTER TABLE Alliance_Att DROP CONSTRAINT DF_Alliance_Def_Date");
+
+
 
     #endregion
 
