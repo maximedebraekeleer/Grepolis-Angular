@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace GrepolistoolsAPI.Data.Repositories
 {
-    public class AllianceRepository
+    public class AllianceRepository : IAllianceRepository
     {
         private readonly GrepolistoolsContext _context;
         private readonly DbSet<Alliance> _alliances;
+        private readonly DateTime recent = (DateTime.Now.Hour <= 1 ? DateTime.Today.AddDays(-1) : DateTime.Today);
 
         public AllianceRepository(GrepolistoolsContext context)
         {
@@ -18,11 +19,25 @@ namespace GrepolistoolsAPI.Data.Repositories
             _alliances = context.Alliances;
         }
 
-        public GetAll(String server, int world)
+        public IEnumerable<Alliance> GetAll(String server, int world)
         {
-
+            return _alliances.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Server_Name == server && a.World_Id == world && a.Date == recent).OrderBy(a => a.Rank).AsNoTracking().ToList();
         }
 
+        public IEnumerable<Alliance> GetById(int id, String server, int world)
+        {
+            return _alliances.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Id == id && a.Server_Name == server && a.World_Id == world).OrderBy(a => a.Date).AsNoTracking().ToList();
+        }
+
+        public Alliance GetByIdDate(int id, String server, int world, String date)
+        {
+            return _alliances.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).SingleOrDefault(a => a.Id == id && a.Server_Name == server && a.World_Id == world && a.Date == DateTime.Parse(date));
+        }
+
+        public IEnumerable<Alliance> GetTop(int top, String server, int world)
+        {
+            return _alliances.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Rank <= top && a.Server_Name == server && a.World_Id == world && a.Date == recent).OrderBy(a => a.Rank).AsNoTracking().ToList();
+        }
 
     }
 }

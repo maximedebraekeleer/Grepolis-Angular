@@ -8,6 +8,10 @@ namespace GrepolistoolsAPI.Models
     public interface IWorldRepository
     {
         IEnumerable<World> GetAll();
-        World GetById(int id, String server);
+        World GetById(String server, int id);
+        int GetPlayerCount(String server, int id);
+        int GetAllianceCount(String server, int id);
+
+
     }
 }

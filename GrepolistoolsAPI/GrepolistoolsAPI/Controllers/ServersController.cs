@@ -37,6 +37,5 @@ namespace GrepolistoolsAPI.Controllers
             if (server == null) return NotFound();
             return server;
         }
-
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GrepolistoolsAPI.Data;
+using GrepolistoolsAPI.Data.Repositories;
+using GrepolistoolsAPI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,10 +29,23 @@ namespace GrepolistoolsAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddOpenApiDocument();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<GrepolistoolsContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IServerRepository, ServerRepository>();
+            services.AddScoped<IWorldRepository, WorldRepository>();
+            services.AddScoped<IAllianceRepository, AllianceRepository>();
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+
+            services.AddOpenApiDocument(c =>
+            {
+                c.DocumentName = "apidocs";
+                c.Title = "Grepolistools";
+                c.Version = "v1";
+                c.Description = "Grepolistools API v1";
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

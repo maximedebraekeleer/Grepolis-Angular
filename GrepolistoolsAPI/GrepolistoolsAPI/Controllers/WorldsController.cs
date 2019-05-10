@@ -31,15 +31,26 @@ namespace GrepolistoolsAPI.Controllers
         }
 
         // GET: api/Worlds/5
-        [HttpGet("{id}/{server}")]
-        public ActionResult<World> GetWorld(int id, String server)
+        [HttpGet("{server}/{id}")]
+        public ActionResult<World> GetWorld(String server, int id)
         {
 
-            World world = _worlds.GetById(id, server);
+            World world = _worlds.GetById(server,id);
             if (world == null) return NotFound();
             return world;
 
         }
 
+        [HttpGet("playercount/{server}/{id}")]
+        public ActionResult<int> GetPlayerCount(String server, int id)
+        {
+            return _worlds.GetPlayerCount(server, id);
+        }
+
+        [HttpGet("alliancecount/{server}/{id}")]
+        public ActionResult<int> GetAllianceCount(String server, int id)
+        {
+            return _worlds.GetAllianceCount(server, id);
+        }
     }
 }

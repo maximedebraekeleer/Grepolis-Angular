@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace GrepolistoolsAPI.Data.Repositories
 {
-    public class ServerRepository
+    public class ServerRepository : IServerRepository
     {
         private readonly DbSet<Server> _servers;
-        GrepolistoolsContext _context;
+        private readonly GrepolistoolsContext _context;
 
         public ServerRepository(GrepolistoolsContext gContext)
         {
             _context = gContext;
             _servers = gContext.Servers;
+
         }
 
         public IEnumerable<Server> GetAll()
         {
-            return _servers;
+            return _servers.AsNoTracking().ToList();
         }
 
         public Server GetServer(String name)
