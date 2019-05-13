@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Server} from './server/server.model';
+import {Observable} from 'rxjs';
+import {ServerDataService} from './server-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Grepolistools';
+
+  private _fetchServers$:Observable<Server[]> = this._serverDataService.servers$;
+
+  constructor(public _serverDataService:ServerDataService) { }
+
+  get servers$(): Observable<Server[]>
+  {
+    return this._fetchServers$;
+  }
+
 }
