@@ -1,8 +1,8 @@
 {
   "/api": {
     "target": {
-      "host": "localhost",
-      "protocol": "https:n",
+      "host": "localhost:44376",
+      "protocol": "http:",
       "port": 44376
     },
     "secure": false,
