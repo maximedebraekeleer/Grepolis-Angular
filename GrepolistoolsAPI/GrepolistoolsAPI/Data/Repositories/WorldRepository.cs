@@ -23,6 +23,11 @@ namespace GrepolistoolsAPI.Data.Repositories
             return _worlds.AsNoTracking().ToList();
         }
 
+        public IEnumerable<World> GetAllFromServer(String server)
+        {
+            return _worlds.AsNoTracking().Where(w => w.Server_Name == server).ToList();
+        }
+
         public World GetById(String server, int id)
         {
             return _worlds.SingleOrDefault(w => w.Id == id && w.Server_Name == server);

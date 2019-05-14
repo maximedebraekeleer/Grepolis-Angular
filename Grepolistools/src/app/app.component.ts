@@ -11,6 +11,7 @@ import {ServerDataService} from './server-data.service';
 export class AppComponent {
 
   private _fetchServers$:Observable<Server[]> = this._serverDataService.servers$;
+  public loadingError$ = this._serverDataService.loadingError$;
 
   constructor(public _serverDataService:ServerDataService) { }
 

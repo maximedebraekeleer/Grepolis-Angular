@@ -13,17 +13,34 @@ import {Server} from '../server/server.model';
 export class NavComponent {
 
   private _fetchServers$:Observable<Server[]> = this._serverDataService.servers$;
+  public currentServer : Observable<Server>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, public _serverDataService:ServerDataService) {}
+
+  constructor(private breakpointObserver: BreakpointObserver, public _serverDataService:ServerDataService)
+  {
+    this.setDefaultServer();
+  }
 
   get servers$(): Observable<Server[]>
   {
     return this._fetchServers$;
   }
+
+  private setDefaultServer() : void
+  {
+      if(localStorage.getItem("defaultServer"))
+      {
+        this.currentServer = JSON.parse(localStorage.getItem("defaultServer"));
+      }else{
+        this.currentServer = this._serverDataService.getServer('nl');
+      }
+  }
+
+
 
 }

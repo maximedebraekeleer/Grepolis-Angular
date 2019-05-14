@@ -2,7 +2,7 @@
   import {Server} from './server/server.model';
   import {HttpClient} from '@angular/common/http';
   import {environment} from '../environments/environment';
-  import {Observable, pipe} from 'rxjs';
+  import {Observable, of, pipe, Subject} from 'rxjs';
   import {catchError, map} from 'rxjs/operators';
 
   @Injectable({
@@ -10,11 +10,14 @@
   })
   export class ServerDataService {
 
+    public loadingError$ = new Subject<string>();
+
     constructor(private http: HttpClient) { }
 
     get servers$(): Observable< Server[] >
     {
         return this.http.get(`${environment.apiUrl}/servers`).pipe(
+          catchError(error => {this.loadingError$.next(error.statusText); return of (null);}),
             map((list:any):Server[] => list.map(Server.fromJSON))
         );
     }

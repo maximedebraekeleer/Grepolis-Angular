@@ -10,6 +10,7 @@ import { ServerComponent } from './server/server.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatSidenavModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatSelectModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

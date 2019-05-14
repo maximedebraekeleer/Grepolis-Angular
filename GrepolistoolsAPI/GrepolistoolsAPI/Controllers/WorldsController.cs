@@ -30,6 +30,12 @@ namespace GrepolistoolsAPI.Controllers
             return _worlds.GetAll();
         }
 
+        [HttpGet("{server}")]
+        public IEnumerable<World> GetFromServer(String server)
+        {
+            return _worlds.GetAllFromServer(server);
+        }
+
         // GET: api/Worlds/5
         [HttpGet("{server}/{id}")]
         public ActionResult<World> GetWorld(String server, int id)
