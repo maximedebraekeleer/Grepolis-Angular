@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { WorldDataService } from './world-data.service';
+import {WorldDataService} from './world-data.service';
 
 describe('WorldDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

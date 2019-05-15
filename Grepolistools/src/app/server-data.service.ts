@@ -1,11 +1,11 @@
-  import { Injectable } from '@angular/core';
-  import {Server} from './server/server.model';
-  import {HttpClient} from '@angular/common/http';
-  import {environment} from '../environments/environment';
-  import {Observable, of, pipe, Subject} from 'rxjs';
-  import {catchError, map} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Server} from './server/server.model';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../environments/environment';
+import {Observable, of, Subject} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
-  @Injectable({
+@Injectable({
     providedIn: 'root'
   })
   export class ServerDataService {

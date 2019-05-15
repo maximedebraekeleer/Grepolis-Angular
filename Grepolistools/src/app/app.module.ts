@@ -5,19 +5,27 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavComponent} from './nav/nav.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { WorldComponent } from './world/world.component';
-import { ServerComponent } from './server/server.component';
+import {WorldComponent} from './world/world.component';
+import {ServerComponent} from './server/server.component';
 import {HttpClientModule} from '@angular/common/http';
-import {MatSidenavModule, MatToolbarModule, MatButtonModule, MatIconModule, MatListModule, MatSelectModule} from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import {FormsModule} from '@angular/forms';
+import {MatButtonModule, MatIconModule, MatListModule, MatSelectModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {LayoutModule} from '@angular/cdk/layout';
+import {RouterModule, Routes} from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const appRoutes: Routes = [
+  {path: '**', component: PageNotFoundComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     WorldComponent,
-    ServerComponent
+    ServerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +39,12 @@ import {FormsModule} from '@angular/forms';
     MatIconModule,
     MatListModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    LayoutModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,9 +1,11 @@
 .sidenav-container {
   height: 100%;
+
 }
 
 .sidenav {
   width: 200px;
+  background-color: #424242;
 }
 
 .sidenav .mat-toolbar {
@@ -16,7 +18,51 @@
   z-index: 1;
 }
 
-#serverSelect > mat-option
+.mat-select-arrow, .mat-select-value{
+  color: white;
+}
+
+form
 {
-  color: red !important;
+  display: flex;
+  justify-content: center;
+  background-color: #212121;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline{
+  background-color: white;
+}
+
+.worldOpen, .worldClosed
+{
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.worldOpen
+{
+  background-color: green;
+}
+
+.worldClosed{
+  background-color: red;
+}
+
+.statusDivWrapper
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.selectWorld-item
+{
+  display: flex !important;
+  justify-content: center;
+}
+.mat-list-item-content{
+  color: white;
 }

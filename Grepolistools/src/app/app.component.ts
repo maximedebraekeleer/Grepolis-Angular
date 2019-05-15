@@ -12,12 +12,30 @@ export class AppComponent {
 
   private _fetchServers$:Observable<Server[]> = this._serverDataService.servers$;
   public loadingError$ = this._serverDataService.loadingError$;
+  public currentServer : string;
 
-  constructor(public _serverDataService:ServerDataService) { }
+  constructor(public _serverDataService:ServerDataService)
+  {
+    this.setDefaultServer();
+  }
 
   get servers$(): Observable<Server[]>
   {
     return this._fetchServers$;
   }
 
+  get currentServer$(): string
+  {
+    return this.currentServer;
+  }
+
+  private setDefaultServer() : void
+  {
+    if(localStorage.getItem("defaultServer"))
+    {
+      this.currentServer = localStorage.getItem("defaultServer");
+    }else{
+      this.currentServer = "nl";
+    }
+  }
 }

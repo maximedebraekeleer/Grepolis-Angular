@@ -33,7 +33,7 @@ namespace GrepolistoolsAPI.Controllers
         [HttpGet("{server}")]
         public IEnumerable<World> GetFromServer(String server)
         {
-            return _worlds.GetAllFromServer(server);
+            return _worlds.GetAllFromServer(server).OrderByDescending(w => w.Id);
         }
 
         // GET: api/Worlds/5
