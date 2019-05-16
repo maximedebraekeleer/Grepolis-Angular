@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {ServerDataService} from '../server-data.service';
 import {Server} from '../server/server.model';
-import {World} from '../world/world.model';
 import {WorldDataService} from '../world-data.service';
 import {FormControl, FormGroup} from '@angular/forms';
 

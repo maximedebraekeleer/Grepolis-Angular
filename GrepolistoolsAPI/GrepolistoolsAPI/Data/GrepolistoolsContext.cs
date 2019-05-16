@@ -1,14 +1,11 @@
 ﻿using GrepolistoolsAPI.Data.Mappers;
 using GrepolistoolsAPI.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace GrepolistoolsAPI.Data
 {
-    public class GrepolistoolsContext : DbContext
+    public class GrepolistoolsContext : IdentityDbContext
     {
 
         #region dbsets
@@ -19,6 +16,7 @@ namespace GrepolistoolsAPI.Data
         public DbSet<Player> Players { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<Conquer> Conquers { get; set; }
+        public DbSet<User> GrepoUsers { get; set; }
 
         #endregion
 
@@ -40,6 +38,7 @@ namespace GrepolistoolsAPI.Data
             builder.ApplyConfiguration(new Alliance_DefConfiguration());
             builder.ApplyConfiguration(new Player_AttConfiguration());
             builder.ApplyConfiguration(new Player_DefConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
         }
 
 

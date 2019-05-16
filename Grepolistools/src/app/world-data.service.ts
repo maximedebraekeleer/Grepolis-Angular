@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {World} from './world/world.model';
 import {environment} from '../environments/environment';
-import {catchError, map} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 
 
