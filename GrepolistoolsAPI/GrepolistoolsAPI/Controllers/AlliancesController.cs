@@ -47,5 +47,16 @@ namespace GrepolistoolsAPI.Controllers
             return _context.GetTop(top, server, world);
         }
 
+        [HttpGet("count/{server}/{world}")]
+        public int CountServerWorld(String server, int world)
+        {
+            return _context.AllianceCount(server, world);
+        }
+
+        [HttpGet("count/{server}")]
+        public int CountServerWorld(String server)
+        {
+            return _context.AllianceCount(server);
+        }
     }
 }

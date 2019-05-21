@@ -47,16 +47,10 @@ namespace GrepolistoolsAPI.Controllers
 
         }
 
-        [HttpGet("playercount/{server}/{id}")]
-        public ActionResult<int> GetPlayerCount(String server, int id)
+        [HttpGet("count/{server}")]
+        public int WorldCount(String server)
         {
-            return _worlds.GetPlayerCount(server, id);
-        }
-
-        [HttpGet("alliancecount/{server}/{id}")]
-        public ActionResult<int> GetAllianceCount(String server, int id)
-        {
-            return _worlds.GetAllianceCount(server, id);
+            return _worlds.WorldCount(server);
         }
     }
 }

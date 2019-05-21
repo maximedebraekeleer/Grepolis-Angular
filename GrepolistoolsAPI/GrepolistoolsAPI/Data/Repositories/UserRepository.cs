@@ -16,7 +16,7 @@ namespace GrepolistoolsAPI.Data.Repositories
         public UserRepository(GrepolistoolsContext context)
         {
             _context = context;
-            _users = context.GrepoUsers;
+            _users = context.Users;
         }
 
         public User GetBy(string username)

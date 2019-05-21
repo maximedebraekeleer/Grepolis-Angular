@@ -35,17 +35,17 @@ export class AuthenticationService {
     return JSON.parse(window.atob(base64));
   }
 
-  login(email: string, password: string): Observable<boolean>
+  login(username: string, password: string): Observable<boolean>
   {
     return this.http.post(
       `${environment.apiUrl}/account`,
-      { email, password },
+      { username, password },
       { responseType: 'text' }
     ).pipe(
       map((token: any) => {
         if (token) {
           localStorage.setItem(this._tokenKey, token);
-          this._user$.next(email);
+          this._user$.next(username);
           return true;
         } else {
           return false;
@@ -102,5 +102,14 @@ export class AuthenticationService {
         params: { username }
       }
     );
+  }
+
+  checkEmailAvailability = (email:string): Observable<boolean> => {
+    return this.http.get<boolean>(
+      `${environment.apiUrl}/account/checkemail`,
+      {
+        params: { email }
+      }
+    )
   }
 }

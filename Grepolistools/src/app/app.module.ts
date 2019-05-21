@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 import {MaterialModule} from './material/material.module';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NavComponent} from './nav/nav.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {WorldComponent} from './world/world.component';
 import {ServerComponent} from './server/server.component';
@@ -11,26 +10,29 @@ import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LayoutModule} from '@angular/cdk/layout';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {httpInterceptorProviders} from './interceptors';
 import {UserModule} from './user/user.module';
-
-const appRoutes: Routes = [
-  {path: '**', component: PageNotFoundComponent}
-];
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {NavComponent} from './nav/nav.component';
+import { HomeComponent } from './home/home.component';
+import { AddCitybuilderComponent } from './citybuilder/add-citybuilder/add-citybuilder.component';
+import { WorldsNavComponent } from './home/worlds-nav/worlds-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     WorldComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavComponent,
+    HomeComponent,
+    AddCitybuilderComponent,
+    WorldsNavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
@@ -38,8 +40,14 @@ const appRoutes: Routes = [
     FormsModule,
     LayoutModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes),
-    UserModule
+    UserModule,
+    MatToolbarModule,
+    RouterModule,
+    AppRoutingModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -16,7 +16,7 @@ namespace GrepolistoolsAPI.Data
         public DbSet<Player> Players { get; set; }
         public DbSet<Town> Towns { get; set; }
         public DbSet<Conquer> Conquers { get; set; }
-        public DbSet<User> GrepoUsers { get; set; }
+        public DbSet<User> Users { get; set; }
 
         #endregion
 

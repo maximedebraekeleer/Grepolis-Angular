@@ -39,5 +39,19 @@ namespace GrepolistoolsAPI.Data.Repositories
             return _alliances.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Rank <= top && a.Server_Name == server && a.World_Id == world && a.Date == recent).OrderBy(a => a.Rank).AsNoTracking().ToList();
         }
 
+        public int AllianceCount(String server, int world = -1)
+        {
+            if(world == -1)
+            {
+                return _alliances.Distinct().AsNoTracking().Select(a => new { a.Id, a.Server_Name, a.Date }).Distinct()
+                    .Where(a => a.Server_Name == server && a.Date == recent).Count();
+            }
+            else
+            {
+                return _alliances.Distinct().AsNoTracking().Select(a => new { a.Id, a.Server_Name, a.World_Id, a.Date }).Distinct()
+                    .Where(a => a.Server_Name == server && a.World_Id == world && a.Date == recent).Count();
+            }
+        }
+
     }
 }

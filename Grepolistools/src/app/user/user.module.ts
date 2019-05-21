@@ -4,8 +4,13 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {MatCardModule, MatFormFieldModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {MaterialModule} from '../material/material.module';
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
+];
 
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
@@ -18,8 +23,8 @@ import {MaterialModule} from '../material/material.module';
     MatFormFieldModule,
     MatCardModule,
     ReactiveFormsModule,
-    RouterModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class UserModule { }

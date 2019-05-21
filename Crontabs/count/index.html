@@ -1,0 +1,12 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    const urlString = 'http://api.grepolistools.com/count/player.php';
+    $.ajax({
+        type: 'GET',
+        url: urlString,
+        complete: (res) => {
+            console.log(res);
+        }
+    });
+    
+</script>

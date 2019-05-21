@@ -25,7 +25,8 @@ export class RegisterComponent implements OnInit
       username: ['', Validators.required, serverSideValidateUsername(this.authService.checkUserNameAvailability)],
       email: [
         '',
-        [Validators.required, Validators.email]
+        [Validators.required, Validators.email,],
+        serverSideValidateEmail(this.authService.checkEmailAvailability)
       ],
       passwordGroup: this.fb.group(
         {
@@ -88,6 +89,8 @@ export class RegisterComponent implements OnInit
       return `not a valid email address`;
     } else if (errors.passwordsDiffer) {
       return `passwords are not the same`;
+    } else if (errors.emailAlreadyExists) {
+      return `email already exists`;
     }
   }
 
@@ -112,6 +115,21 @@ function serverSideValidateUsername(
           return null;
         }
         return { userAlreadyExists: true };
+      })
+    );
+  };
+}
+
+function serverSideValidateEmail(
+  checkAvailabilityFn: (n: string) => Observable<boolean>
+  ) : ValidatorFn {
+  return (control: AbstractControl): Observable<{ [key: string]: any }> => {
+    return checkAvailabilityFn(control.value).pipe(
+      map(available => {
+        if (available) {
+          return null;
+        }
+        return { emailAlreadyExists: true };
       })
     );
   };

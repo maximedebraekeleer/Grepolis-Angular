@@ -1,68 +1,14 @@
-.sidenav-container {
-  height: 100%;
-
-}
-
-.sidenav {
-  width: 200px;
-  background-color: #424242;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-.mat-select-arrow, .mat-select-value{
+.btn {
   color: white;
+  border: solid 1px white;
+  border-radius: 0;
+  outline: none;
 }
 
-form
-{
-  display: flex;
-  justify-content: center;
-  background-color: #212121;
+.btn:active {
+  outline: none;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-underline{
-  background-color: white;
-}
-
-.worldOpen, .worldClosed
-{
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-}
-
-.worldOpen
-{
-  background-color: green;
-}
-
-.worldClosed{
-  background-color: red;
-}
-
-.statusDivWrapper
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.selectWorld-item
-{
-  display: flex !important;
-  justify-content: center;
-}
-.mat-list-item-content{
+.currentUser {
   color: white;
 }

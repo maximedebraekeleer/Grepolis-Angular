@@ -6,7 +6,7 @@ using GrepolistoolsAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GrepolistoolsAPI.Data.Repositories
+namespace GrepolistoolsAPI.Controllers
 {
     [ApiConventionType(typeof(DefaultApiConventions))]
     [Produces("application/json")]
@@ -45,6 +45,18 @@ namespace GrepolistoolsAPI.Data.Repositories
         public IEnumerable<Player> GetTop(int top, String server, int world)
         {
             return _context.GetTop(top, server, world);
+        }
+
+        [HttpGet("count/{server}/{world}")]
+        public int countServerWorld(String server, int world)
+        {
+            return _context.PlayerCount(server, world);
+        }
+
+        [HttpGet("count/{server}")]
+        public int countServer(String server)
+        {
+            return _context.PlayerCount(server);
         }
     }
 }

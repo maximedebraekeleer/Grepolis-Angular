@@ -1,0 +1,14 @@
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\bin\Release\netcoreapp2.2\GrepolistoolsAPI.deps.json
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\bin\Release\netcoreapp2.2\GrepolistoolsAPI.runtimeconfig.json
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\bin\Release\netcoreapp2.2\GrepolistoolsAPI.runtimeconfig.dev.json
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\bin\Release\netcoreapp2.2\GrepolistoolsAPI.dll
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\bin\Release\netcoreapp2.2\GrepolistoolsAPI.pdb
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.csprojAssemblyReference.cache
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.csproj.CoreCompileInputs.cache
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.RazorAssemblyInfo.cache
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.RazorAssemblyInfo.cs
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.AssemblyInfoInputs.cache
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.AssemblyInfo.cs
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.dll
+C:\Users\Maxime\source\repos\web4-20182019-gent-2b12c1-maximeDeBr\GrepolistoolsAPI\GrepolistoolsAPI\obj\Release\netcoreapp2.2\GrepolistoolsAPI.pdb

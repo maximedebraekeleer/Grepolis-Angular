@@ -11,5 +11,6 @@ namespace GrepolistoolsAPI.Models
         IEnumerable<Alliance> GetById(int id, String server, int world);
         Alliance GetByIdDate(int id, String server, int world, String date);
         IEnumerable<Alliance> GetTop(int top, String server, int world);
+        int AllianceCount(String server, int world = -1);
     }
 }

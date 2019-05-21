@@ -1,31 +1,32 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="!(isHandset$ | async)">
-<form [formGroup]="navigation" >
-  <mat-form-field>
-    <mat-select id="selectServer" aria-label="server-navigation"  formControlName="selectServer" (load)="loadWorlds$()">
-      <mat-option *ngFor="let localServer of (servers$ | async)" [value]="localServer.name">
-        {{localServer.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>
-    <mat-nav-list id="selectWorld" aria-label="world-navigation">
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary" fxHide.gt-sm>
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon" fxHide.gt-sm>menu</mat-icon>
-      </button>
-    </mat-toolbar>
-      <ng-content></ng-content>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" [routerLink]="['home']">Grepolistools</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">City builder</a>
+      </li>
+    </ul>
+    <form *ngIf="($currentUser | async) as user; else noLoggedInUser" class="form-inline my-2 my-lg-0">
+      <span class="currentUser" mr-2>{{user}}</span>
+      <a [routerLink]="['login']">
+        <button class="btn my-2 my-sm-0 ml-2" (click)="logout()">Logout</button>
+      </a>
+    </form>
+    <ng-template #noLoggedInUser>
+      <form class="form-inline my-2 my-lg-0">
+        <a [routerLink]="['login']">
+          <button class="btn my-2 my-sm-0 mr-2" type="submit">Login</button>
+        </a>
+        <a [routerLink]="['register']">
+          <button class="btn my-2 my-sm-0" type="submit">Register</button>
+        </a>
+      </form>
+    </ng-template>
+  </div>
+</nav>
+<ng-content></ng-content>

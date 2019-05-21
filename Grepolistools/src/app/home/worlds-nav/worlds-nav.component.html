@@ -1,0 +1,19 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="!(isHandset$ | async)">
+    <form [formGroup]="navigation">
+      <mat-form-field>
+        <mat-select id="selectServer" aria-label="server-navigation" formControlName="selectServer"
+                    (load)="loadWorlds$()">
+          <mat-option *ngFor="let localServer of (servers$ | async)" [value]="localServer.name">
+            {{localServer.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <mat-nav-list id="selectWorld" aria-label="world-navigation">
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -13,8 +13,13 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
     if($world['isOpen'])
     {
         sqlsrv_query($conn, "DELETE FROM Town WHERE Date < '$OneWeek' AND Server_Name = '$world[Server_Name]' AND World_Id = '$world[Id]'");
-        sqlsrv_query($conn, "DELETE FROM Alliance WHERE Date < '$twoWeeks' AND Server_Name = '$world[Server_Name]' AND World_Id = '$world[Id]' ");
-        sqlsrv_query($conn, "DELETE FROM Player WHERE Date < '$twoWeeks' AND Server_Name = '$world[Server_Name]' AND World_Id = '$world[Id]' ");
+        sqlsrv_query($conn, "DELETE FROM Alliance WHERE Date < '$OneWeek' AND Server_Name = '$world[Server_Name]' AND World_Id = '$world[Id]' ");
+        sqlsrv_query($conn, "DELETE FROM Player WHERE Date < '$OneWeek' AND Server_Name = '$world[Server_Name]' AND World_Id = '$world[Id]' ");
+        if( ($errors = sqlsrv_errors() ) != null) {
+        foreach( $errors as $error ) {
+        echo "message: ".$error[ 'message']."\n";
+        }
+        }
     }else
     {
         $dates = sqlsrv_query($conn, "SELECT DISTINCT(Date) FROM Player WHERE Server_Name = '$world[Server_Name]' AND World_Id = '$world[Id]' Order By Date Desc");

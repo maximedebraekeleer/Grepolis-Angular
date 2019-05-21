@@ -11,5 +11,6 @@ namespace GrepolistoolsAPI.Models
         IEnumerable<Town> GetById(int id, String server, int world);
         Town GetByIdDate(int id, String server, int world, String date);
         IEnumerable<Town> GetFromPlayer(int player, String server, int world);
+        int TownCount(String server, int world = -1);
     }
 }

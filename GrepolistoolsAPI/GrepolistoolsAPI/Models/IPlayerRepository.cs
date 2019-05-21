@@ -11,6 +11,7 @@ namespace GrepolistoolsAPI.Models
         IEnumerable<Player> GetById(int id, String server, int world);
         Player GetByIdDate(int id, String server, int world, String date);
         IEnumerable<Player> GetTop(int top, String server, int world);
+        int PlayerCount(String server, int world = -1);
 
     }
 }

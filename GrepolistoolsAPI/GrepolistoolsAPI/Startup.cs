@@ -43,6 +43,7 @@ namespace GrepolistoolsAPI
             services.AddScoped<IWorldRepository, WorldRepository>();
             services.AddScoped<IAllianceRepository, AllianceRepository>();
             services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<ITownRepository, TownRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddOpenApiDocument(c =>
@@ -79,6 +80,27 @@ namespace GrepolistoolsAPI
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
+            });
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequiredUniqueChars = 0;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
+                options.User.RequireUniqueEmail = true;
             });
 
         }

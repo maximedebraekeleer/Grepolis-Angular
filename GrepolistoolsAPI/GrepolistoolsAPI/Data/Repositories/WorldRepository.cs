@@ -33,16 +33,9 @@ namespace GrepolistoolsAPI.Data.Repositories
             return _worlds.SingleOrDefault(w => w.Id == id && w.Server_Name == server);
         }
 
-        public int GetPlayerCount(String server, int id)
+        public int WorldCount(String server)
         {
-            World world = _context.Worlds.Include(w => w.players).SingleOrDefault(w => w.Server_Name == server && w.Id == id);
-            return world.players.Count(p => p.Date == recent);
-        }
-
-        public int GetAllianceCount(String server, int id)
-        {
-            World world = _context.Worlds.Include(w => w.alliances).SingleOrDefault(w => w.Server_Name == server && w.Id == id);
-            return world.alliances.Count(a => a.Date == recent);
+            return _worlds.Distinct().AsNoTracking().Count();
         }
 
     }

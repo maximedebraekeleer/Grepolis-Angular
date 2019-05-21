@@ -45,7 +45,19 @@ namespace GrepolistoolsAPI.Controllers
         [HttpGet("player/{id}/{server}/{world}")]
         public IEnumerable<Town> GetFromPlayer(int id, String server, int world)
         {
-            return _context.GetById(id, server, world);
+            return _context.GetFromPlayer(id, server, world);
+        }
+
+        [HttpGet("count/{server}/{world}")]
+        public int countServerWorld(String server, int world)
+        {
+            return _context.TownCount(server, world);
+        }
+
+        [HttpGet("count/{server}")]
+        public int countServer(String server)
+        {
+            return _context.TownCount(server);
         }
     }
 }

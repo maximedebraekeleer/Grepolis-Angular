@@ -12,7 +12,10 @@ namespace GrepolistoolsAPI.Data.Mappers
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder.ToTable("User");
+            builder.HasKey(u => u.Username);
             builder.Property(u => u.Username).HasMaxLength(100);
+
         }
     }
 }

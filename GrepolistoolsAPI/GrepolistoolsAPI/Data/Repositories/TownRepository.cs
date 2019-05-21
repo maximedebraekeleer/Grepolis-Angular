@@ -40,5 +40,19 @@ namespace GrepolistoolsAPI.Data.Repositories
             return _towns.Where(t => t.Player_Id == player && t.Server_Name == server && t.World_Id == world && t.Date == recent).AsNoTracking().ToList();
         }
 
+        public int TownCount(String server, int world = -1)
+        {
+            if(world == -1)
+            {
+                return _towns.Distinct().AsNoTracking().Select(t => new { t.Id, t.Server_Name, t.Date }).Distinct()
+                        .Where(t => t.Server_Name == server && t.Date == recent).Count();
+            }
+            else
+            {
+                return _towns.Distinct().AsNoTracking().Select(t => new { t.Id, t.Server_Name, t.World_Id, t.Date }).Distinct()
+                        .Where(t => t.Server_Name == server && t.World_Id == world && t.Date == recent).Count();
+            }
+        }
+
     }
 }

@@ -42,6 +42,15 @@ namespace GrepolistoolsAPI.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet("checkemail")]
+        public async Task<ActionResult<Boolean>>
+        CheckAvailableEmail(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            return (user == null);
+        }
+
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<String>> CreateToken(LoginDTO model)
         {
