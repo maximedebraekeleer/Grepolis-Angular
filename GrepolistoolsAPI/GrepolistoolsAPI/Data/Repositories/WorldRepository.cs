@@ -35,7 +35,7 @@ namespace GrepolistoolsAPI.Data.Repositories
 
         public int WorldCount(String server)
         {
-            return _worlds.Distinct().AsNoTracking().Count();
+            return _worlds.Distinct().AsNoTracking().Where(w => w.Server_Name == server).Count();
         }
 
     }

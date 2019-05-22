@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Server} from '../../server/server.model';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -18,6 +18,10 @@ export class WorldsNavComponent implements OnInit
 
   private _fetchServers$: Observable<Server[]> = this._serverDataService.servers$;
   @Input() private defaultServer: string;
+  @Output() defaultServerChange: EventEmitter<String> = new EventEmitter();
+  @Input() public selectedWorld: any;
+  @Output() selectedWorldChanged: EventEmitter<any> = new EventEmitter();
+
   public navigation: FormGroup;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -49,8 +53,9 @@ export class WorldsNavComponent implements OnInit
 
   loadWorlds$(): void
   {
-    const p = this._worldDataService.getWorlds$(this.navigation.controls['selectServer'].value);
+    const p = this._worldDataService.getWorlds$(this.defaultServer);
     const selectWorld = document.getElementById('selectWorld');
+    selectWorld.innerHTML = '';
     p.then((res) =>
     {
       for (var w in res)
@@ -62,17 +67,41 @@ export class WorldsNavComponent implements OnInit
         statusDiv.classList.add((res[w].isOpen ? 'worldOpen' : 'worldClosed'));
         let a = document.createElement('a');
         a.appendChild(statusDivWrapper);
-        a.href = '#';
         a.classList.add('mat-list-item');
         a.classList.add('selectWorld-item');
+        a.onclick = (e) =>
+        {
+          this.worldClicked(e.target);
+        };
         let aDiv = document.createElement('div');
         aDiv.innerHTML = `${res[w].server_Name}${res[w].id} - ${res[w].name}`;
         aDiv.classList.add('mat-list-item-content');
+        aDiv.id = `${res[w].server_Name}_${res[w].id}`;
         a.appendChild(aDiv);
         selectWorld.appendChild(a);
 
       }
     });
+  }
+
+  worldClicked(target: EventTarget)
+  {
+    // @ts-ignore
+    let data = target.id.split('_');
+    this.selectedWorld = {
+      server: data[0],
+      world: data[1]
+    };
+    this.selectedWorldChanged.emit(this.selectedWorld);
+
+  }
+
+  changeServer(e: string): void
+  {
+    this.defaultServer = e;
+    this.defaultServerChange.emit(this.defaultServer);
+    this.loadWorlds$();
+    console.log(e);
   }
 
 }

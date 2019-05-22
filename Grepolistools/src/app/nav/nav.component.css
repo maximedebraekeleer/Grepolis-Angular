@@ -5,6 +5,10 @@
   outline: none;
 }
 
+nav, .bg-dark {
+  background-color: #212121 !important;
+}
+
 .btn:active {
   outline: none;
 }

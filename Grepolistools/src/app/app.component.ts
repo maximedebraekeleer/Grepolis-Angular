@@ -8,12 +8,14 @@ import {ServerDataService} from './server-data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent
+{
 
-  private _fetchServers$:Observable<Server[]> = this._serverDataService.servers$;
+  private _fetchServers$: Observable<Server[]> = this._serverDataService.servers$;
   public loadingError$ = this._serverDataService.loadingError$;
+  public _selectedWorld: JSON;
 
-  constructor(public _serverDataService:ServerDataService)
+  constructor(public _serverDataService: ServerDataService)
   {
   }
 

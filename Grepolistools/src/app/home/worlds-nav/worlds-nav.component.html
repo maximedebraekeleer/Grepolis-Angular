@@ -3,11 +3,12 @@
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="!(isHandset$ | async)">
-    <form [formGroup]="navigation">
+    <form [formGroup]="navigation" id="selectServerForm">
       <mat-form-field>
         <mat-select id="selectServer" aria-label="server-navigation" formControlName="selectServer"
                     (load)="loadWorlds$()">
-          <mat-option *ngFor="let localServer of (servers$ | async)" [value]="localServer.name">
+          <mat-option *ngFor="let localServer of (servers$ | async)" [value]="localServer.name"
+                      (click)="changeServer(localServer.name)">
             {{localServer.name}}
           </mat-option>
         </mat-select>

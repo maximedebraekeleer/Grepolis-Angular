@@ -86,7 +86,11 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
             FORMATFILE = '/var/www/api.grepolistools.com/format/player.xml'
         );
     ");
-
+    if( ($errors = sqlsrv_errors() ) != null) {
+        foreach( $errors as $error ) {
+        echo "message: ".$error[ 'message']."\n";
+        }
+        }
     sqlsrv_query($conn, "ALTER TABLE Player DROP CONSTRAINT DF_Player_Server_Name");
     sqlsrv_query($conn, "ALTER TABLE Player DROP CONSTRAINT DF_Player_World  ");
     sqlsrv_query($conn, "ALTER TABLE Player DROP CONSTRAINT DF_Player_Date  ");
@@ -111,7 +115,6 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
             FORMATFILE = '/var/www/api.grepolistools.com/format/town.xml'
         );
     ");
-
     sqlsrv_query($conn, "ALTER TABLE Town DROP CONSTRAINT DF_Town_Server_Name");
     sqlsrv_query($conn, "ALTER TABLE Town DROP CONSTRAINT DF_Town_World  ");
     sqlsrv_query($conn, "ALTER TABLE Town DROP CONSTRAINT DF_Town_Date  ");

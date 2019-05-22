@@ -1,0 +1,20 @@
+.serverContent {
+  height: 100%;
+  width: 100%;
+  padding: 3vw;
+}
+
+#serverStats {
+  color: white;
+  background-color: #212121;
+  padding: 2vw;
+}
+
+#serverStatsContentSpinner {
+  margin: 0 auto;
+}
+
+#serverStatsContent {
+  display: flex;
+  flex-direction: column;
+}

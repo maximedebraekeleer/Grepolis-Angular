@@ -14,11 +14,20 @@ import {RouterModule} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {httpInterceptorProviders} from './interceptors';
 import {UserModule} from './user/user.module';
-import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatIconModule,
+  MatListModule,
+  MatSidenavModule,
+  MatSortModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
 import {NavComponent} from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AddCitybuilderComponent } from './citybuilder/add-citybuilder/add-citybuilder.component';
 import { WorldsNavComponent } from './home/worlds-nav/worlds-nav.component';
+import { PlayerComponent } from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +38,8 @@ import { WorldsNavComponent } from './home/worlds-nav/worlds-nav.component';
     NavComponent,
     HomeComponent,
     AddCitybuilderComponent,
-    WorldsNavComponent
+    WorldsNavComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,9 @@ import { WorldsNavComponent } from './home/worlds-nav/worlds-nav.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

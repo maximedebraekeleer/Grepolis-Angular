@@ -14,5 +14,6 @@
   <COLUMN SOURCE="3" NAME="Alliance_Id" xsi:type="SQLINT"/>  
   <COLUMN SOURCE="4" NAME="Points" xsi:type="SQLINT"/>  
   <COLUMN SOURCE="5" NAME="Rank" xsi:type="SQLINT"/>  
+  <COLUMN SOURCE="6" NAME="Towns" xsi:type="SQLINT"/> 
  </ROW>  
 </BCPFORMAT>  
