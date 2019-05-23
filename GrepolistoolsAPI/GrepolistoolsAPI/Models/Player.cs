@@ -10,6 +10,7 @@ namespace GrepolistoolsAPI.Models
         public int? Alliance_Id { get; set; }
         public int Points { get; set; }
         public int Rank { get; set; }
+        public int? Towns { get; set; }
         public World World { get; private set; }
         public int World_Id { get; private set; }
         public string Server_Name { get; private set; }

@@ -38,5 +38,13 @@ namespace GrepolistoolsAPI.Data.Repositories
             return _conquers.Where(c => c.NewAlliance == alliance || c.OldAlliance == alliance && c.Server_Name == server && c.World_Id == world);
         }
 
+        public int[] GetConquersAndLossesFromPlayer(int player, String server, int world)
+        {
+            int[] result = new int[2];
+            result[0] = _conquers.Distinct().Where(c => c.NewOwner == player && c.Server_Name == server && c.World_Id == world).AsNoTracking().Count();
+            result[1] = _conquers.Distinct().Where(c => c.OldOwner == player && c.Server_Name == server && c.World_Id == world).AsNoTracking().Count();
+            return result;
+        }
+
     }
 }

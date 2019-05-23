@@ -1,3 +1,10 @@
+.contentWrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: #424242;
+}
+
 .serverContent {
   height: 100%;
   width: 100%;
@@ -7,14 +14,23 @@
 #serverStats {
   color: white;
   background-color: #212121;
-  padding: 2vw;
+  padding: 20px 2vw 20px 2vw;
+  min-width: 25vw;
+  min-height: 200px;
+}
+
+#serverStats > h3 {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 #serverStatsContentSpinner {
   margin: 0 auto;
+  padding-top: 20px;
 }
 
 #serverStatsContent {
   display: flex;
   flex-direction: column;
+  position: center;
 }

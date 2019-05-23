@@ -1,26 +1,69 @@
-<table mat-table [dataSource]="topPlayers" matSort>
+<div class="worldWrapper">
 
-  <!-- rank  -->
-  <ng-container matColumnDef="rank">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Rank</th>
-    <td mat-cell *matCellDef="let player"> {{player.rank}} </td>
-  </ng-container>
+  <app-worlds-nav [defaultServer]="server"></app-worlds-nav>
 
-  <!-- Name  -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-    <td mat-cell *matCellDef="let player"> {{player.name}} </td>
-  </ng-container>
+  <div class="worldContent">
 
-  <!-- Alliance  -->
-  <ng-container matColumnDef="rank">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Alliance</th>
-    <td mat-cell *matCellDef="let player"> {{player.alliance}} </td>
-  </ng-container>
+    <div class="tableWrapper">
+      <table mat-table [dataSource]="_topPlayers" matSort class="mat-elevation-z8"
+             matSortActive="rank" matSortDirection="asc"
+             (matSortChange)="loadTopPlayers($event)">
 
-  <!-- Points  -->
-  <ng-container matColumnDef="rank">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header>Rank</th>
-    <td mat-cell *matCellDef="let player"> {{player.rank}} </td>
-  </ng-container>
-</table>
+        <!-- rank  -->
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Rank</th>
+          <td mat-cell *matCellDef="let player"> {{player.rank}} </td>
+        </ng-container>
+
+        <!-- Name  -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let player" class="clickable-td"
+              (click)="playerClicked($event)"> {{player.name}} </td>
+        </ng-container>
+
+        <!-- Alliance  -->
+        <ng-container matColumnDef="alliance">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Alliance</th>
+          <td mat-cell *matCellDef="let player" class="clickable-td"> {{player.alliance}} </td>
+        </ng-container>
+
+        <!-- Points  -->
+        <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Points</th>
+          <td mat-cell *matCellDef="let player"> {{player.points}} </td>
+        </ng-container>
+
+        <!-- Attacking  -->
+        <ng-container matColumnDef="attackers">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Attackers</th>
+          <td mat-cell *matCellDef="let player"> {{player.pointsAttacking}} </td>
+        </ng-container>
+
+        <!-- Defender  -->
+        <ng-container matColumnDef="defenders">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Defenders</th>
+          <td mat-cell *matCellDef="let player"> {{player.pointsDefending}} </td>
+        </ng-container>
+
+        <!-- Fighter  -->
+        <ng-container matColumnDef="fighters">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Fighters</th>
+          <td mat-cell *matCellDef="let player"> {{player.pointsFighting}} </td>
+        </ng-container>
+
+        <!-- Towns  -->
+        <ng-container matColumnDef="towns">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Towns</th>
+          <td mat-cell *matCellDef="let player"> {{player.towns}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" style="align-content: center"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+    </div>
+
+  </div>
+
+</div>

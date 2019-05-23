@@ -1,28 +1,29 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
   styleUrls: ['./server.component.css']
 })
-export class ServerComponent implements OnInit, OnChanges
+export class ServerComponent implements OnInit
 {
 
-  @Input() private _server: string;
+  public server: string;
 
-  constructor(private http: HttpClient)
+  constructor(private http: HttpClient, private router: ActivatedRoute)
   {
   }
 
   ngOnInit()
   {
-    this.fetchServerStats();
-  }
+    this.router.params.subscribe(params =>
+    {
+      (params['server'] ? this.server = params['server'] : this.server = 'nl');
 
-  ngOnChanges()
-  {
+    });
     this.fetchServerStats();
   }
 
@@ -34,28 +35,28 @@ export class ServerComponent implements OnInit, OnChanges
     spinner.style.display = 'block';
     serverStats.innerHTML = '';
     let countWorlds = document.createElement('span');
-    this.http.get(`${environment.apiUrl}/Worlds/count/${this._server}`).toPromise()
+    this.http.get(`${environment.apiUrl}/Worlds/count/${this.server}`).toPromise()
       .then((res) =>
       {
         countWorlds.innerText = `Amount of worlds:   ${res}`;
       });
     serverStats.appendChild(countWorlds);
     let countPlayers = document.createElement('span');
-    this.http.get(`${environment.apiUrl}/Players/count/${this._server}`).toPromise()
+    this.http.get(`${environment.apiUrl}/Players/count/${this.server}`).toPromise()
       .then((res) =>
       {
         countPlayers.innerText = `Amount of players:   ${res}`;
       });
     serverStats.appendChild(countPlayers);
     let countAlliances = document.createElement('span');
-    this.http.get(`${environment.apiUrl}/Alliances/count/${this._server}`).toPromise()
+    this.http.get(`${environment.apiUrl}/Alliances/count/${this.server}`).toPromise()
       .then((res) =>
       {
         countAlliances.innerText = `Amount of Alliances:   ${res}`;
       });
     serverStats.appendChild(countAlliances);
     let countTowns = document.createElement('span');
-    this.http.get(`${environment.apiUrl}/Towns/count/${this._server}`).toPromise()
+    this.http.get(`${environment.apiUrl}/Towns/count/${this.server}`).toPromise()
       .then((res) =>
       {
         countTowns.innerText = `Amount of Towns:  ${res}`;

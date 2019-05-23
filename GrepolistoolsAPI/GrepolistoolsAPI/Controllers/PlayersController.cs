@@ -30,9 +30,15 @@ namespace GrepolistoolsAPI.Controllers
 
         // GET: api/Players/5
         [HttpGet("{id}/{server}/{world}")]
-        public IEnumerable<Player> GetPlayer(int id, String server, int world)
+        public IEnumerable<Player> GetPlayerById(int id, String server, int world)
         {
             return _context.GetById(id, server, world);
+        }
+
+        [HttpGet("name/{name}/{server}/{world}")]
+        public IEnumerable<Player> GetPlayerByName(String name, String server, int world)
+        {
+            return _context.GetByName(name, server, world);
         }
 
         [HttpGet("{id}/{server}/{world}/{date}")]
@@ -57,6 +63,12 @@ namespace GrepolistoolsAPI.Controllers
         public int countServer(String server)
         {
             return _context.PlayerCount(server);
+        }
+
+        [HttpGet("checkplayer/{name}/{server}/{world}")]
+        public bool checkplayer(String name, String server, int world)
+        {
+            return _context.CheckPlayer(name, server, world);
         }
     }
 }

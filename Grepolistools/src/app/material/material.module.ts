@@ -1,21 +1,21 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
   MatInputModule,
   MatListModule,
   MatOptionModule,
-  MatSelectModule,
-  MatGridListModule,
-  MatCardModule,
-  MatIconModule,
-  MatFormFieldModule,
   MatProgressSpinnerModule,
-  MatToolbarModule,
-  MatSidenavModule
+  MatSelectModule,
+  MatSidenavModule,
+  MatToolbarModule
 } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { LayoutModule } from '@angular/cdk/layout';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {LayoutModule} from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [],

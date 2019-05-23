@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { PlayerDataService } from './player-data.service';
+import {PlayerDataService} from './player-data.service';
 
 describe('PlayerDataService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

@@ -1,3 +1,13 @@
-<p>
-  player works!
-</p>
+<div class="playerWrapper">
+  <h2>{{playerName}} - {{server}}{{world}}</h2>
+  <div class="playerContent">
+    <div id="playerStats" *ngIf="playerToday | async as p">
+      <ul>
+        <li>Points: {{p.points}} (Rank #{{p.rank}})</li>
+        <li>Alliance: {{p.alliance}}</li>
+        <li>Number of towns: {{p.towns}}</li>
+        <li id="conquers"></li>
+      </ul>
+    </div>
+  </div>
+</div>

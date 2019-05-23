@@ -24,10 +24,9 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {NavComponent} from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
-import { AddCitybuilderComponent } from './citybuilder/add-citybuilder/add-citybuilder.component';
-import { WorldsNavComponent } from './home/worlds-nav/worlds-nav.component';
-import { PlayerComponent } from './player/player.component';
+import {AddCitybuilderComponent} from './citybuilder/add-citybuilder/add-citybuilder.component';
+import {WorldsNavComponent} from './worlds-nav/worlds-nav.component';
+import {PlayerComponent} from './player/player.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { PlayerComponent } from './player/player.component';
     ServerComponent,
     PageNotFoundComponent,
     NavComponent,
-    HomeComponent,
     AddCitybuilderComponent,
     WorldsNavComponent,
     PlayerComponent
@@ -64,4 +62,6 @@ import { PlayerComponent } from './player/player.component';
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule
+{
+}

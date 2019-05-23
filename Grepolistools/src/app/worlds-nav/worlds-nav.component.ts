@@ -1,11 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Server} from '../../server/server.model';
+import {Server} from '../server/server.model';
 import {FormControl, FormGroup} from '@angular/forms';
-import {ServerDataService} from '../../server-data.service';
-import {WorldDataService} from '../../world-data.service';
+import {ServerDataService} from '../server-data.service';
+import {WorldDataService} from '../world-data.service';
 import {map} from 'rxjs/operators';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-worlds-nav',
@@ -18,9 +19,7 @@ export class WorldsNavComponent implements OnInit
 
   private _fetchServers$: Observable<Server[]> = this._serverDataService.servers$;
   @Input() private defaultServer: string;
-  @Output() defaultServerChange: EventEmitter<String> = new EventEmitter();
   @Input() public selectedWorld: any;
-  @Output() selectedWorldChanged: EventEmitter<any> = new EventEmitter();
 
   public navigation: FormGroup;
 
@@ -32,9 +31,14 @@ export class WorldsNavComponent implements OnInit
   constructor(
     private breakpointObserver: BreakpointObserver,
     public _serverDataService: ServerDataService,
-    public _worldDataService: WorldDataService
+    public _worldDataService: WorldDataService,
+    private router: Router
   )
   {
+    this.router.routeReuseStrategy.shouldReuseRoute = () =>
+    {
+      return false;
+    };
   }
 
   ngOnInit(): void
@@ -88,20 +92,12 @@ export class WorldsNavComponent implements OnInit
   {
     // @ts-ignore
     let data = target.id.split('_');
-    this.selectedWorld = {
-      server: data[0],
-      world: data[1]
-    };
-    this.selectedWorldChanged.emit(this.selectedWorld);
-
+    this.router.navigate(['world', this.defaultServer, data[1]]);
   }
 
   changeServer(e: string): void
   {
-    this.defaultServer = e;
-    this.defaultServerChange.emit(this.defaultServer);
-    this.loadWorlds$();
-    console.log(e);
+    this.router.navigate(['server', e]);
   }
 
 }

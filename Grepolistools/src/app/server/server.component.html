@@ -1,10 +1,16 @@
-<div class="serverContent">
-  <div class="row">
-    <div id="serverStats">
-      <h3>Server stats</h3>
-      <mat-progress-spinner mode="indeterminate" id="serverStatsContentSpinner"></mat-progress-spinner>
-      <div id="serverStatsContent">
+<div class="contentWrapper">
+
+  <app-worlds-nav [defaultServer]="server"></app-worlds-nav>
+
+  <div class="serverContent">
+    <div class="row">
+      <div id="serverStats">
+        <h3>Server stats</h3>
+        <mat-progress-spinner mode="indeterminate" id="serverStatsContentSpinner"></mat-progress-spinner>
+        <div id="serverStatsContent">
+        </div>
       </div>
     </div>
   </div>
+
 </div>

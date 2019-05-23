@@ -1,7 +1,0 @@
-<div class="homeWrapper">
-  <app-worlds-nav [defaultServer]="server"
-                  (selectedWorldChanged)="selectedWorldChangedHandler($event)"
-                  (defaultServerChange)="defaultServerChangedHandler($event)"></app-worlds-nav>
-  <app-server [_server]="_server" *ngIf="_showServerHome"></app-server>
-  <app-world [_currentWorld]="selectedWorld" [_currentServer]="server" *ngIf="!(_showServerHome)"></app-world>
-</div>

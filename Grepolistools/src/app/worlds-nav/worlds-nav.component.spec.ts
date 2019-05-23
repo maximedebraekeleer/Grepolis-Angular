@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WorldsNavComponent } from './worlds-nav.component';
+import {WorldsNavComponent} from './worlds-nav.component';
 
 describe('WorldsNavComponent', () => {
   let component: WorldsNavComponent;

@@ -9,7 +9,7 @@ if(!file_exists("/var/www/api.grepolistools.com/LOCK"))
 
     mkdir("/var/www/api.grepolistools.com/LOCK");
 
-    $getWorlds = sqlsrv_query($conn, "SELECT Id, Server_Name FROM World");
+    $getWorlds = sqlsrv_query($conn, "SELECT Id, Server_Name, isOpen FROM World");
     $curDate = date("Y-m-d");
 
 while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
@@ -22,7 +22,7 @@ while($world = sqlsrv_fetch_array($getWorlds, SQLSRV_FETCH_ASSOC))
 
     while($lm = sqlsrv_fetch_array($lastModifiedQ, SQLSRV_FETCH_ASSOC))
     {
-        if(new DateTime($lmHeaderDate) > $lm['lastModified'])
+        if(new DateTime($lmHeaderDate) > $lm['lastModified'] && $world['isOpen'] == true)
         {
 
             #region Deletes

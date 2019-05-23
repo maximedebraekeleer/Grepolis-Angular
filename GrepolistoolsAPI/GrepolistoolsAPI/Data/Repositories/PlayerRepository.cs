@@ -22,12 +22,16 @@ namespace GrepolistoolsAPI.Data.Repositories
 
         public IEnumerable<Player> GetAll(String server, int id)
         {
-            return _context.Players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Server_Name == server && p.World_Id == id && p.Date == recent).OrderBy(p => p.Rank).AsNoTracking().ToList();
+            return _players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Server_Name == server && p.World_Id == id && p.Date == recent).OrderBy(p => p.Rank).AsNoTracking().ToList();
         }
 
         public IEnumerable<Player> GetById(int id, String server, int world)
         {
-            return _context.Players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Id == id && p.Server_Name == server && p.World_Id == world).AsNoTracking().ToList();
+            return _players.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Id == id && a.Server_Name == server && a.World_Id == world).OrderBy(a => a.Date).AsNoTracking().ToList();
+        }
+        public IEnumerable<Player> GetByName(String name, String server, int world)
+        {
+            return _players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Name == name && p.Server_Name == server && p.World_Id == world);
         }
 
         public Player GetByIdDate(int id, String server, int world, String date)
@@ -52,6 +56,11 @@ namespace GrepolistoolsAPI.Data.Repositories
                 return _players.Distinct().AsNoTracking().Select(p => new { p.Name, p.Server_Name, p.World_Id, p.Date }).Distinct()
                     .Where(p => p.Server_Name == server && p.World_Id == world && p.Date == recent).Count();
             }
+        }
+
+        public bool CheckPlayer(String name, String server, int world)
+        {
+            return (_players.SingleOrDefault(p => p.Name == name && p.Server_Name == server && p.World_Id == world && p.Date == recent) != null);
         }
 
     }

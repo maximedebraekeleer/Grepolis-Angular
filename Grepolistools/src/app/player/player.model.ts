@@ -10,7 +10,8 @@ export class Player
               private _server_Name: string,
               private _date: Date,
               private _pointsAttacking: number,
-              private _pointsDefending: number
+              private _pointsDefending: number,
+              private _pointsFighting: number = _pointsAttacking + _pointsDefending
   )
   {
   }
@@ -96,9 +97,49 @@ export class Player
     this._date = value;
   }
 
+  get alliance(): number
+  {
+    return this._alliance;
+  }
+
+  set alliance(value: number)
+  {
+    this._alliance = value;
+  }
+
+  get pointsAttacking(): number
+  {
+    return this._pointsAttacking;
+  }
+
+  set pointsAttacking(value: number)
+  {
+    this._pointsAttacking = value;
+  }
+
+  get pointsDefending(): number
+  {
+    return this._pointsDefending;
+  }
+
+  set pointsDefending(value: number)
+  {
+    this._pointsDefending = value;
+  }
+
+  get pointsFighting(): number
+  {
+    return this._pointsFighting;
+  }
+
+  set pointsFighting(value: number)
+  {
+    this._pointsFighting = value;
+  }
+
   static fromJSON(json: any): Player
   {
-    const p = new Player(json.id, json.name, json.alliance_id, json.points, json.rank,
+    const p = new Player(json.id, json.name, json.alliance_Id, json.points, json.rank,
       json.towns, json.world_Id, json.server_Name, json.date, json.pointsAttacking.points, json.pointsDefending.points);
     return p;
   }

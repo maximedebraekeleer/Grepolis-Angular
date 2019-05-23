@@ -1,14 +1,8 @@
-import { AuthenticationService } from '../authentication.service';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  ValidatorFn,
-  Validators
-} from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
+import {AuthenticationService} from '../authentication.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpErrorResponse} from '@angular/common/http';
 
 function comparePasswords(control: AbstractControl): { [key: string]: any } {
   const password = control.get('password');

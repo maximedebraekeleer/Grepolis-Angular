@@ -4,7 +4,6 @@ import {HttpClient} from '@angular/common/http';
 import {Player} from './player/player.model';
 import {environment} from '../environments/environment';
 import {catchError, map} from 'rxjs/operators';
-import {Server} from './server/server.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +27,19 @@ export class PlayerDataService
       }),
       map((list: any): Player[] => list.map(Player.fromJSON))
     );
+  }
+
+  getSinglePlayerData(name: string, server: string, world: number)
+  {
+    return this.http.get(`${environment.apiUrl}/players/name/${name}/${server}/${world}`)
+      .pipe(
+        catchError(error =>
+        {
+          this.loadingError$.next(error.statusText);
+          return of(null);
+        }),
+        map(
+          (list: any): Player[] => list.map(Player.fromJSON))
+      );
   }
 }
