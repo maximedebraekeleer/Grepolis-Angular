@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAApWRtLCuvDkeJ7w1kearX6AAAAAACAAAAAAAQZgAAAAEAACAAAACj6foJefydsN40n3izxRbIYrAwOAQlMVpo8wJGN8VrLAAAAAAOgAAAAAIAACAAAADRK5zsWS3YQoPmzFBkUEM6smdCIYaRbcKW//90mB4qcYAAAAC7q4TieGk13ESTwO2YTclpKpaCcB2IMKrNZf0KUfKrjGxH+mezcdbadNh4DUPEdeIwn6eYsUBvxQIM71p0gz8Urrwhq55qZ9YKTSjw4qjok+CZgtj/Cayl31zQb7KablbzymplqEKQuouNMhMSqhcuiNbmE/6mPrC5iCaICHAKdkAAAAD5SmglKD14I7ZycBMZI2JuCopHeJqsy+Bl3zehn7rbgaZwxWpDugY+igIi5KfGIzNg2hRTiBvAjbh5IHDiW7yB</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=51.15.92.64%3bInitial Catalog=grepolistools%3bUser ID=sa%3bPassword=D93xd+m000%3bIntegrated Security=False</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -27,6 +27,7 @@ import {NavComponent} from './nav/nav.component';
 import {AddCitybuilderComponent} from './citybuilder/add-citybuilder/add-citybuilder.component';
 import {WorldsNavComponent} from './worlds-nav/worlds-nav.component';
 import {PlayerComponent} from './player/player.component';
+import { AllianceComponent } from './alliance/alliance.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {PlayerComponent} from './player/player.component';
     NavComponent,
     AddCitybuilderComponent,
     WorldsNavComponent,
-    PlayerComponent
+    PlayerComponent,
+    AllianceComponent
   ],
   imports: [
     BrowserModule,

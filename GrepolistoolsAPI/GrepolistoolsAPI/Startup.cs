@@ -45,6 +45,7 @@ namespace GrepolistoolsAPI
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddScoped<ITownRepository, TownRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IConquerRepository, ConquerRepository>();
 
             services.AddOpenApiDocument(c =>
             {

@@ -38,7 +38,7 @@ export class AuthenticationService {
   login(username: string, password: string): Observable<boolean>
   {
     return this.http.post(
-      `${environment.apiUrl}/account`,
+      `https://grepolistoolsapi20190524025011.azurewebsites.net/api/account`,
       { username, password },
       { responseType: 'text' }
     ).pipe(
@@ -58,7 +58,7 @@ export class AuthenticationService {
   ): Observable<boolean> {
     return this.http
       .post(
-        `${environment.apiUrl}/account/register`,
+        `https://grepolistoolsapi20190524025011.azurewebsites.net/api/account/register`,
         {
           username,
           email, password,
@@ -97,7 +97,7 @@ export class AuthenticationService {
 
   checkUserNameAvailability = (username: string): Observable<boolean> => {
     return this.http.get<boolean>(
-      `${environment.apiUrl}/account/checkusername`,
+      `https://grepolistoolsapi20190524025011.azurewebsites.net/api/account/checkusername`,
       {
         params: { username }
       }
@@ -106,7 +106,7 @@ export class AuthenticationService {
 
   checkEmailAvailability = (email:string): Observable<boolean> => {
     return this.http.get<boolean>(
-      `${environment.apiUrl}/account/checkemail`,
+      `https://grepolistoolsapi20190524025011.azurewebsites.net/api/account/checkemail`,
       {
         params: { email }
       }

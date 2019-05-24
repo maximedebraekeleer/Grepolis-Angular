@@ -16,7 +16,7 @@ export class WorldDataService {
   getWorlds$(server):Promise<Object>
   {
 
-    return this.http.get(`${environment.apiUrl}/worlds/${server}`).toPromise();
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/worlds/${server}`).toPromise();
 
   }
 

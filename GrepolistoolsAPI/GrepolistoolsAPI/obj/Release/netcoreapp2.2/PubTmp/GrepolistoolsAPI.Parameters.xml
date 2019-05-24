@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="GrepolistoolsAPI" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="GrepolistoolsAPI20190524025011" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Maxime\\source\\repos\\web4-20182019-gent-2b12c1-maximeDeBr\\GrepolistoolsAPI\\GrepolistoolsAPI\\obj\\Release\\netcoreapp2\.2\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

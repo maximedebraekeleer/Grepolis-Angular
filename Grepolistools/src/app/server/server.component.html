@@ -11,6 +11,16 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div id="playerTracker">
+        <div *ngIf="(currentUser|async) else noLoggedUserTracker">
+          Ingelogd
+        </div>
+        <ng-template #noLoggedUserTracker>
+          niet ingelogd
+        </ng-template>
+      </div>
+    </div>
   </div>
 
 </div>

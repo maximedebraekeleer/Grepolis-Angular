@@ -19,7 +19,7 @@ export class PlayerDataService
 
   getTopPlayers$(top: number, world: number, server: string): Observable<Player[]>
   {
-    return this.http.get(`${environment.apiUrl}/players/top/${top}/${server}/${world}`).pipe(
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/players/top/${top}/${server}/${world}`).pipe(
       catchError(error =>
       {
         this.loadingError$.next(error.statusText);
@@ -29,9 +29,9 @@ export class PlayerDataService
     );
   }
 
-  getSinglePlayerData(name: string, server: string, world: number)
+  getSinglePlayerData(id: number, server: string, world: number)
   {
-    return this.http.get(`${environment.apiUrl}/players/name/${name}/${server}/${world}`)
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/players/${id}/${server}/${world}`)
       .pipe(
         catchError(error =>
         {
@@ -41,5 +41,12 @@ export class PlayerDataService
         map(
           (list: any): Player[] => list.map(Player.fromJSON))
       );
+  }
+
+  getConquersFromPlayer(id: number, server: string, world: number)
+  {
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/conquers/player/count/${id}/${server}/${world}`)
+      .pipe(map(
+        (list: any): number[] => list));
   }
 }

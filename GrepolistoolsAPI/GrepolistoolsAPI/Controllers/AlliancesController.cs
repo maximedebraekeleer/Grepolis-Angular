@@ -58,5 +58,17 @@ namespace GrepolistoolsAPI.Controllers
         {
             return _context.AllianceCount(server);
         }
+
+        [HttpGet("namemap/{server}/{world}")]
+        public Dictionary<int, String> GetIdNameMap(String server, int world)
+        {
+            return _context.GetIdNameMap(server, world);
+        }
+
+        [HttpGet("player/{id}/{server}/{world}")]
+        public Alliance GetName(int id, String server, int world)
+        {
+            return _context.GetNameFromPlayer(id, server, world);
+        }
     }
 }

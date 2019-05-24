@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'server/:server', component: ServerComponent},
   {path: 'server', component: ServerComponent},
   {path: 'world/:server/:world', component: WorldComponent},
-  {path: 'player/:server/:world/:name', component: PlayerComponent},
+  {path: 'player/:server/:world/:player', component: PlayerComponent},
   {path: '', redirectTo: 'server', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

@@ -1,13 +1,35 @@
-<div class="playerWrapper">
-  <h2>{{playerName}} - {{server}}{{world}}</h2>
+<div class="playerWrapper" *ngIf="playerToday | async as p">
+  <h2>{{p.name}} - {{server}}{{world}}</h2>
   <div class="playerContent">
-    <div id="playerStats" *ngIf="playerToday | async as p">
-      <ul>
-        <li>Points: {{p.points}} (Rank #{{p.rank}})</li>
-        <li>Alliance: {{p.alliance}}</li>
-        <li>Number of towns: {{p.towns}}</li>
-        <li id="conquers"></li>
-      </ul>
+    <div class="playerStatsWrapper">
+      <h5>Statistics</h5>
+      <div class="playerStatsContent">
+        <div class="playerStatsHeading">
+          <ul>
+            <li>Points:</li>
+            <li>Alliance:</li>
+            <li>Number of towns:</li>
+            <li>Conquers:</li>
+            <li>Attackers:</li>
+            <li>Defenders:</li>
+            <li>Fighters:</li>
+          </ul>
+        </div>
+        <div class="playerStatsValues">
+          <ul>
+            <li>{{p.points}} (Rank #{{p.rank}})</li>
+            <li *ngIf="playerAlliance | async as a">{{a.name}}</li>
+            <li>{{p.towns}}</li>
+            <li *ngIf="playerConquersCount | async as c">
+              <span class="conquered">+{{c[0]}}</span>
+              <span class="losses"> -{{c[1]}}</span>
+            </li>
+            <li>{{p.pointsAttacking}}</li>
+            <li>{{p.pointsDefending}}</li>
+            <li>{{p.pointsFighting}}</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

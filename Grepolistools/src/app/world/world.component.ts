@@ -5,7 +5,9 @@ import {PlayerDataService} from '../player-data.service';
 import {MatSort, Sort} from '@angular/material';
 import {map} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AllianceDataService} from '../alliance-data.service';
 
+// @ts-ignore
 @Component({
   selector: 'app-world',
   templateUrl: './world.component.html',
@@ -18,10 +20,11 @@ export class WorldComponent implements OnInit
   public server: string;
   private _topPlayers: Observable<Player[]>;
   public displayedColumns: String[] = ['rank', 'name', 'alliance', 'points', 'attackers', 'defenders', 'fighters', 'towns'];
+  public alliances;
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private _playerDataService: PlayerDataService, private router: Router, private aRouter: ActivatedRoute)
+  constructor(private _playerDataService: PlayerDataService, private router: Router, private aRouter: ActivatedRoute, private _allianceDataService: AllianceDataService)
   {
 
   }
@@ -34,11 +37,8 @@ export class WorldComponent implements OnInit
       this.world = params['world'];
     });
     this.loadTopPlayers({active: 'rank', direction: 'asc'});
-  }
-
-  sortTable(): void
-  {
-
+    this.alliances = this._allianceDataService.getIdNameMap(this.server, this.world);
+    console.log(this.alliances);
   }
 
   loadTopPlayers(sort: Sort)
@@ -65,6 +65,6 @@ export class WorldComponent implements OnInit
 
   playerClicked(e)
   {
-    this.router.navigate(['player', this.server, this.world, e.target.innerText]);
+    this.router.navigate(['player', this.server, this.world, e.target.id]);
   }
 }

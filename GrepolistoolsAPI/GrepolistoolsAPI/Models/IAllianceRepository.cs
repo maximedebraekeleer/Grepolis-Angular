@@ -12,5 +12,7 @@ namespace GrepolistoolsAPI.Models
         Alliance GetByIdDate(int id, String server, int world, String date);
         IEnumerable<Alliance> GetTop(int top, String server, int world);
         int AllianceCount(String server, int world = -1);
+        Dictionary<int, String> GetIdNameMap(String server, int world);
+        Alliance GetNameFromPlayer(int id, String server, int world);
     }
 }

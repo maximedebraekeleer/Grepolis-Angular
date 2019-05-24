@@ -65,10 +65,10 @@ namespace GrepolistoolsAPI.Controllers
             return _context.PlayerCount(server);
         }
 
-        [HttpGet("checkplayer/{name}/{server}/{world}")]
-        public bool checkplayer(String name, String server, int world)
+        [HttpGet("checkplayer/{player}/{server}/{world}")]
+        public bool checkplayer(int player, String server, int world)
         {
-            return _context.CheckPlayer(name, server, world);
+            return _context.CheckPlayer(player, server, world);
         }
     }
 }

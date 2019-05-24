@@ -27,11 +27,11 @@ namespace GrepolistoolsAPI.Data.Repositories
 
         public IEnumerable<Player> GetById(int id, String server, int world)
         {
-            return _players.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Id == id && a.Server_Name == server && a.World_Id == world).OrderBy(a => a.Date).AsNoTracking().ToList();
+            return _players.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Id == id && a.Server_Name == server && a.World_Id == world).OrderByDescending(a => a.Date).AsNoTracking().ToList();
         }
         public IEnumerable<Player> GetByName(String name, String server, int world)
         {
-            return _players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Name == name && p.Server_Name == server && p.World_Id == world);
+            return _players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Name == name && p.Server_Name == server && p.World_Id == world).OrderByDescending(a => a.Date).AsNoTracking().ToList();
         }
 
         public Player GetByIdDate(int id, String server, int world, String date)
@@ -58,9 +58,9 @@ namespace GrepolistoolsAPI.Data.Repositories
             }
         }
 
-        public bool CheckPlayer(String name, String server, int world)
+        public bool CheckPlayer(int player, String server, int world)
         {
-            return (_players.SingleOrDefault(p => p.Name == name && p.Server_Name == server && p.World_Id == world && p.Date == recent) != null);
+            return (_players.SingleOrDefault(p => p.Id == player && p.Server_Name == server && p.World_Id == world && p.Date == recent) != null);
         }
 
     }

@@ -11,7 +11,6 @@ export class Player
               private _date: Date,
               private _pointsAttacking: number,
               private _pointsDefending: number,
-              private _pointsFighting: number = _pointsAttacking + _pointsDefending
   )
   {
   }
@@ -129,12 +128,7 @@ export class Player
 
   get pointsFighting(): number
   {
-    return this._pointsFighting;
-  }
-
-  set pointsFighting(value: number)
-  {
-    this._pointsFighting = value;
+    return this.pointsAttacking + this.pointsDefending;
   }
 
   static fromJSON(json: any): Player

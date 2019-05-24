@@ -53,5 +53,24 @@ namespace GrepolistoolsAPI.Data.Repositories
             }
         }
 
+        public Dictionary<int, String> GetIdNameMap(string server, int world)
+        {
+            Dictionary<int, String> result = new Dictionary<int, String>();
+            IEnumerable<Alliance> alliances = _alliances.Distinct().Where(a => a.Server_Name == server && a.World_Id == world && a.Date == recent).Distinct().AsNoTracking().ToList();
+
+            foreach (var a in alliances)
+            {
+                result.Add(a.Id, a.Name);
+            }
+
+            return result;
+        }
+
+        public Alliance GetNameFromPlayer(int id, String server, int world)
+        {
+            int? allianceId = _context.Players.SingleOrDefault(p => p.Id == id && p.Server_Name == server && p.World_Id == world && p.Date == recent).Alliance_Id;
+            return _alliances.SingleOrDefault(a => a.Id == allianceId && a.Server_Name == server && a.World_Id == world && a.Date == recent);
+        }
+
     }
 }

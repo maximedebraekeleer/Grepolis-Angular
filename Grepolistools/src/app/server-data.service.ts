@@ -19,7 +19,7 @@ export class ServerDataService
 
   get servers$(): Observable<Server[]>
   {
-    return this.http.get(`${environment.apiUrl}/servers`).pipe(
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/servers`).pipe(
       catchError(error =>
       {
         this.loadingError$.next(error.statusText);
@@ -31,7 +31,7 @@ export class ServerDataService
 
   getServer(name): Observable<Server>
   {
-    return this.http.get(`${environment.apiUrl}/servers/${name}`).pipe(
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/servers/${name}`).pipe(
       map((rec: any): Server => Server.fromJSON(rec))
     );
   }
