@@ -5,19 +5,31 @@
   <div class="serverContent">
     <div class="row">
       <div id="serverStats">
-        <h3>Server stats</h3>
+        <h3 data-cy="server">Server stats</h3>
         <mat-progress-spinner mode="indeterminate" id="serverStatsContentSpinner"></mat-progress-spinner>
         <div id="serverStatsContent">
+        </div>
+      </div>
+      <div id="searchPlayer">
+        <h3>Search</h3>
+        <div>
+          <form [formGroup]="searchPlayerForm">
+            <input type="text" placeholder="Search player" formControlName="searchPlayerInput">
+            <button id="searchPlayerButton" (click)="searchPlayer()">
+              <mat-icon>search</mat-icon>
+            </button>
+          </form>
         </div>
       </div>
     </div>
     <div class="row">
       <div id="playerTracker">
+        <h3>Player Tracker</h3>
         <div *ngIf="(currentUser|async) else noLoggedUserTracker">
           Ingelogd
         </div>
         <ng-template #noLoggedUserTracker>
-          niet ingelogd
+          <span>Log in or register to make use of this feature.</span>
         </ng-template>
       </div>
     </div>

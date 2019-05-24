@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" fxHide.lt-md>
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -8,7 +8,7 @@
         <mat-select id="selectServer" aria-label="server-navigation" formControlName="selectServer"
                     (load)="loadWorlds$()">
           <mat-option *ngFor="let localServer of (servers$ | async)" [value]="localServer.name"
-                      (click)="changeServer(localServer.name)">
+                      (click)="changeServer()">
             {{localServer.name}}
           </mat-option>
         </mat-select>

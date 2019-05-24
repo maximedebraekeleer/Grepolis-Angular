@@ -1,0 +1,23 @@
+<div class="searchWrapper">
+  <div class="searchContent">
+    <table class="table" *ngIf="searchResults">
+      <thead>
+      <tr>
+        <th>Server/World</th>
+        <th>Name</th>
+        <th>Points</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let searchres of (searchResults|async)">
+        <td>{{searchres.server_Name}}{{searchres.world_id}}</td>
+        <td data-cy="search" class="clickable-td" id="{{searchres.server_Name}}/{{searchres.world_id}}/{{searchres.id}}"
+            (click)="navigateToPlayer($event)">{{searchres.name}}</td>
+        <td>{{searchres.points}} (Rank #{{searchres.rank}})</td>
+      </tr>
+      <tr data-cy="playernotFound" class="nothingFound" *ngIf="!(searchResults|async)?.length">
+        <span>No player found with the name "{{searchParam}}"</span></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -35,10 +35,10 @@ namespace GrepolistoolsAPI.Controllers
             return _context.GetById(id, server, world);
         }
 
-        [HttpGet("name/{name}/{server}/{world}")]
-        public IEnumerable<Player> GetPlayerByName(String name, String server, int world)
+        [HttpGet("name/{name}")]
+        public IEnumerable<Player> GetPlayerByName(String name)
         {
-            return _context.GetByName(name, server, world);
+            return _context.GetByName(name);
         }
 
         [HttpGet("{id}/{server}/{world}/{date}")]

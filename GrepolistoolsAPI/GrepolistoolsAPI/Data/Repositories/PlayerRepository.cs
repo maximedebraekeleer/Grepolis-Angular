@@ -29,9 +29,9 @@ namespace GrepolistoolsAPI.Data.Repositories
         {
             return _players.Include(a => a.PointsAttacking).Include(a => a.PointsDefending).Where(a => a.Id == id && a.Server_Name == server && a.World_Id == world).OrderByDescending(a => a.Date).AsNoTracking().ToList();
         }
-        public IEnumerable<Player> GetByName(String name, String server, int world)
+        public IEnumerable<Player> GetByName(String name)
         {
-            return _players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Name == name && p.Server_Name == server && p.World_Id == world).OrderByDescending(a => a.Date).AsNoTracking().ToList();
+            return _players.Include(p => p.PointsAttacking).Include(p => p.PointsDefending).Where(p => p.Name == name && p.Date == recent).OrderByDescending(a => a.World_Id).AsNoTracking().ToList();
         }
 
         public Player GetByIdDate(int id, String server, int world, String date)

@@ -28,6 +28,7 @@ import {AddCitybuilderComponent} from './citybuilder/add-citybuilder/add-citybui
 import {WorldsNavComponent} from './worlds-nav/worlds-nav.component';
 import {PlayerComponent} from './player/player.component';
 import { AllianceComponent } from './alliance/alliance.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AllianceComponent } from './alliance/alliance.component';
     AddCitybuilderComponent,
     WorldsNavComponent,
     PlayerComponent,
-    AllianceComponent
+    AllianceComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

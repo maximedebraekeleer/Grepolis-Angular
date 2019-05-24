@@ -9,7 +9,7 @@ namespace GrepolistoolsAPI.Models
     {
         IEnumerable<Player> GetAll(String server, int id);
         IEnumerable<Player> GetById(int id, String server, int world);
-        IEnumerable<Player> GetByName(String name, String server, int world);
+        IEnumerable<Player> GetByName(String name);
         Player GetByIdDate(int id, String server, int world, String date);
         IEnumerable<Player> GetTop(int top, String server, int world);
         int PlayerCount(String server, int world = -1);

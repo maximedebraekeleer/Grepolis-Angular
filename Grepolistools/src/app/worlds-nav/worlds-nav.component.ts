@@ -95,9 +95,9 @@ export class WorldsNavComponent implements OnInit
     this.router.navigate(['world', this.defaultServer, data[1]]);
   }
 
-  changeServer(e: string): void
+  changeServer(): void
   {
-    this.router.navigate(['server', e]);
+    this.router.navigate(['server', this.navigation.value.selectServer]);
   }
 
 }

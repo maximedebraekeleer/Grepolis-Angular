@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../user/authentication.service';
 import {BehaviorSubject} from 'rxjs';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-server',
@@ -15,19 +16,23 @@ export class ServerComponent implements OnInit
 
   public server: string;
   private _currentUser = this._authService.user$;
+  public searchPlayerForm: FormGroup;
 
-  constructor(private http: HttpClient, private router: ActivatedRoute, private _authService: AuthenticationService)
+  constructor(private http: HttpClient, private aRoute: ActivatedRoute, private _authService: AuthenticationService, private router: Router)
   {
   }
 
   ngOnInit()
   {
-    this.router.params.subscribe(params =>
+    this.aRoute.params.subscribe(params =>
     {
       (params['server'] ? this.server = params['server'] : this.server = 'nl');
 
     });
     this.fetchServerStats();
+    this.searchPlayerForm = new FormGroup({
+      searchPlayerInput: new FormControl()
+    });
   }
 
   private fetchServerStats()
@@ -41,6 +46,10 @@ export class ServerComponent implements OnInit
     this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/Worlds/count/${this.server}`).toPromise()
       .then((res) =>
       {
+        if (!res)
+        {
+          this.router.navigate(['404']);
+        }
         countWorlds.innerText = `Amount of worlds active:   ${res}`;
       });
     serverStats.appendChild(countWorlds);
@@ -76,5 +85,10 @@ export class ServerComponent implements OnInit
   get currentUser(): BehaviorSubject<string>
   {
     return this._currentUser;
+  }
+
+  searchPlayer()
+  {
+    this.router.navigate(['search', this.searchPlayerForm.value.searchPlayerInput]);
   }
 }

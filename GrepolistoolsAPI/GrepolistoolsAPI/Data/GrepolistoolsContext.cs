@@ -17,6 +17,7 @@ namespace GrepolistoolsAPI.Data
         public DbSet<Town> Towns { get; set; }
         public DbSet<Conquer> Conquers { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<PlayerTracker> PlayerTracker { get; set; }
 
         #endregion
 
@@ -39,6 +40,7 @@ namespace GrepolistoolsAPI.Data
             builder.ApplyConfiguration(new Player_AttConfiguration());
             builder.ApplyConfiguration(new Player_DefConfiguration());
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new PlayerTrackerConfiguration());
         }
 
 

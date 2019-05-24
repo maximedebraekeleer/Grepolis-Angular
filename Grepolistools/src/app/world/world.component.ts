@@ -1,11 +1,13 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Observable} from 'rxjs';
+import {CommonModule} from '@angular/common';
 import {Player} from '../player/player.model';
 import {PlayerDataService} from '../player-data.service';
 import {MatSort, Sort} from '@angular/material';
 import {map} from 'rxjs/operators';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AllianceDataService} from '../alliance-data.service';
+import {FormControl, FormGroup} from '@angular/forms';
 
 // @ts-ignore
 @Component({
@@ -21,6 +23,7 @@ export class WorldComponent implements OnInit
   private _topPlayers: Observable<Player[]>;
   public displayedColumns: String[] = ['rank', 'name', 'alliance', 'points', 'attackers', 'defenders', 'fighters', 'towns'];
   public alliances;
+
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -38,7 +41,7 @@ export class WorldComponent implements OnInit
     });
     this.loadTopPlayers({active: 'rank', direction: 'asc'});
     this.alliances = this._allianceDataService.getIdNameMap(this.server, this.world);
-    console.log(this.alliances);
+
   }
 
   loadTopPlayers(sort: Sort)

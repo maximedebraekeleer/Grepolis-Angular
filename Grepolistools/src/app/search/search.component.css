@@ -1,0 +1,38 @@
+.searchWrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #424242;
+}
+
+table {
+  background-color: #212121;
+  color: white;
+  max-width: 50vw;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.clickable-td {
+  cursor: pointer;
+}
+
+.clickable-td:hover {
+  text-decoration: underline;
+}
+
+.nothingFound {
+  text-align: center;
+  padding: 2vh 0;
+  width: 100%;
+}
+
+.nothingFound > span {
+  margin: 0 auto;
+  padding: 2vh 0;
+}

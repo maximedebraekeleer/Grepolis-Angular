@@ -46,7 +46,23 @@ export class PlayerDataService
   getConquersFromPlayer(id: number, server: string, world: number)
   {
     return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/conquers/player/count/${id}/${server}/${world}`)
-      .pipe(map(
+      .pipe(catchError(error =>
+      {
+        this.loadingError$.next(error.statusText);
+        return of(null);
+      }), map(
         (list: any): number[] => list));
+  }
+
+  getPlayerByName(name: string)
+  {
+    return this.http.get(`https://grepolistoolsapi20190524025011.azurewebsites.net/api/players/name/${name}`)
+      .pipe(catchError(error =>
+      {
+        this.loadingError$.next(error.statusText);
+        return of(null);
+      }), map(
+        (list: any): Player[] => list.map(Player.fromJSON)
+      ));
   }
 }

@@ -8,21 +8,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        
+        np
       </li>
     </ul>
     <form *ngIf="($currentUser | async) as user; else noLoggedInUser" class="form-inline my-2 my-lg-0">
       <span class="currentUser" mr-2>{{user}}</span>
       <a [routerLink]="['login']">
-        <button class="btn my-2 my-sm-0 ml-2" (click)="logout()">Logout</button>
+        <button class="btn my-2 my-sm-0 ml-2" data-cy="logout" (click)="logout()">Logout</button>
       </a>
     </form>
     <ng-template #noLoggedInUser>
       <form class="form-inline my-2 my-lg-0">
         <a [routerLink]="['login']">
-          <button class="btn my-2 my-sm-0 mr-2" type="submit">Login</button>
+          <button class="btn my-2 my-sm-0 mr-2" data-cy="login" type="submit">Login</button>
         </a>
-        <a [routerLink]="['register']">
+        <a [routerLink]="['register']" href="">
           <button class="btn my-2 my-sm-0" type="submit">Register</button>
         </a>
       </form>
