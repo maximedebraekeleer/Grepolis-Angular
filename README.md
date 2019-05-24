@@ -2,7 +2,9 @@
 web4-20182019-gent-2b12c1-maximeDeBr created by GitHub Classroom
 
 API Draait op: https://grepolistoolsapi20190524025011.azurewebsites.net/swagger/index.html
+
 Front-End lokaal te gebruiken.
+
 Sql Server databank draait op een eigen linux server met IP 51.15.92.64. De gebruiker 'web4' met wachtwoord 'Gelukkiggeennetbeans1'
 heeft reading en writing permissies.
 
