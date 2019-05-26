@@ -10,3 +10,5 @@ heeft reading en writing permissies.
 
 De PHP scripts maken gebruik van een 'Databank.php' file, deze file is niet mee geupload aangezien deze logingegevens bevat van een
 account met de nodige permissies om scripts etc uit te voeren op mijn linux server. Dit is ook het enige wat in de file zit, de logingegevens.
+
+Maxime De Braekeleer
