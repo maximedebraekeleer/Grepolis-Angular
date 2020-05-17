@@ -1,14 +1,8 @@
-# web4-20182019-gent-2b12c1-maximeDeBr
-web4-20182019-gent-2b12c1-maximeDeBr created by GitHub Classroom
+# Grepolis-Angular
 
-API Draait op: https://grepolistoolsapi20190524025011.azurewebsites.net/swagger/index.html
+School project. 
 
-Front-End lokaal te gebruiken.
+A small webapp which displays data from grepolis. The crontabs read the Grepolis API, which are plain text files, process them and insert them into a database.
+The back-end C# API turns that database into a REST API which we uploaded to azure. Finally we have an Angular app on the front-end to display all of our data.
 
-Sql Server databank draait op een eigen linux server met IP 51.15.92.64. De gebruiker 'web4' met wachtwoord 'Gelukkiggeennetbeans1'
-heeft reading en writing permissies.
-
-De PHP scripts maken gebruik van een 'Databank.php' file, deze file is niet mee geupload aangezien deze logingegevens bevat van een
-account met de nodige permissies om scripts etc uit te voeren op mijn linux server. Dit is ook het enige wat in de file zit, de logingegevens.
-
-Maxime De Braekeleer
+The database is no longer in use so this project is for code-viewing purposes only.
